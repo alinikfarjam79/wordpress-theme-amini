@@ -1,0 +1,23 @@
+/*
+Theme Name: My Theme
+Version: 1.0
+Text Domain: my-theme
+*/
+.custom-search .wp-block-search__input {
+  height: 48px;
+  border-radius: 24px;
+  border: 1px solid #e0e0e0;
+  padding: 0 16px;
+  text-align: right;
+  font-family: Tahoma, sans-serif;
+  font-size: 16px;
+  background: #fff;
+}
+
+.custom-search .wp-block-search__button {
+  display: none !important;
+}
+
+.custom-search {
+  max-width: 600px;
+}
