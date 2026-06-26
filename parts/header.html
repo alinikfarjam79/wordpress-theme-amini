@@ -1,12 +1,11 @@
-<!-- wp:group {"tagName":"header","layout":{"type":"constrained"}} -->
-<header class="wp-block-group">
+<header class="wp-block-group site-header">
 
-
-    <!-- wp:group {"style":{"spacing":{"padding":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}},"dimensions":{"minHeight":"50px"}},"layout":{"type":"flex","justifyContent":"center","verticalAlignment":"center"}} -->
-    <div class="wp-block-group has-primary-color"
+    <!-- TOP BAR -->
+    <!-- wp:group {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"padding":{"top":"0px","bottom":"0px"}}}} -->
+    <div class="wp-block-group site-header__promo"
         style="min-height:50px;background-color:#CC9900;display:flex;align-items:center;justify-content:center;">
 
-        <!-- wp:paragraph {"align":"center","fontSize":"lg","textColor":"background","style":{"typography":{"fontWeight":"700"},"spacing":{"margin":{"top":"0px","bottom":"0px"}}}} -->
+        <!-- wp:paragraph {"align":"center","fontSize":"lg","style":{"typography":{"fontWeight":"700"},"spacing":{"margin":{"top":"0px","bottom":"0px"}}},"textColor":"background"} -->
         <p class="has-text-align-center has-lg-font-size has-background-color" style="margin:0;font-weight:700;">
             ۲۰ درصد تخفیف اولین ثبت سفارش از سایت
         </p>
@@ -15,42 +14,57 @@
     </div>
     <!-- /wp:group -->
 
-    <!-- wp:group {"style":{"spacing":{"padding":{"top":"15px","bottom":"15px"}}},"layout":{"type":"flex","justifyContent":"space-between","verticalAlignment":"center"}} -->
-    <div class="wp-block-group">
+    <!-- MAIN HEADER ROW -->
+    <!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"nowrap","verticalAlignment":"center"},"style":{"spacing":{"margin":{"top":"20px"}}}} -->
+    <div class="wp-block-group site-header__main" style="padding-right: 60px;padding-left: 60px; padding-top: 30px;">
 
+        <!-- LEFT SIDE -->
+        <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+        <div class="wp-block-group site-header__brand-search">
 
-        <div style="display:flex;gap:12px;align-items:center">
-            <!-- 🔹 RIGHT: LOGO -->
-            <!-- wp:site-logo /-->
-            <div
-                style="max-width:600px;width:100%;display:flex;align-items:center;gap:10px;border:1px solid #e0e0e0;border-radius:24px;padding:0 16px;height:48px;box-sizing:border-box;background:#fff;direction:rtl;">
-                <input type="text" placeholder="جستجو..."
-                    style="flex:1;border:none;outline:none;font-size:16px;font-family:Tahoma,sans-serif;text-align:right;background:transparent;color:#333;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#757575" stroke-width="2">
+            <!-- SITE LOGO -->
+            <!-- wp:shortcode -->
+            [theme_logo]
+            <!-- /wp:shortcode -->
+
+            <!-- SEARCH BOX -->
+            <!-- wp:html -->
+            <div class="site-header__search"
+                style="width:370px;display:flex;align-items:center;gap:10px;border:1px solid #e0e0e0;border-radius:24px;padding:0 16px;height:30px;background:#fff;">
+                <input type="text" placeholder="جستجو"
+                    style="flex:1;border:none;outline:none;font-size:20px;background:transparent;text-align:right;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#757575" stroke-width="2"
+                    style=" transform: scaleX(-1);">
                     <circle cx="11" cy="11" r="8"></circle>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
-
             </div>
+            <!-- /wp:html -->
+
         </div>
+        <!-- /wp:group -->
 
+        <!-- RIGHT SIDE -->
+        <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"10px"}}} -->
+        <div class="wp-block-group site-header__actions">
 
-        <!-- 🔹 LEFT: CART + LOGIN -->
-        <!-- wp:group {"layout":{"type":"flex","justifyContent":"left","flexWrap":"nowrap"}} -->
-        <div class="wp-block-group">
+            <!-- LOGIN -->
+            <!-- wp:html -->
+            <a href="/my-account"
+                style="display:inline-flex;align-items:center;gap:8px;border:1px solid #D9D9D9;padding:3px 14px;border-radius:999px;background:#fff;color:#111;font-size:14px;font-weight:600;text-decoration:none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8.62217 2H4.20739C3.62196 2 3.0605 2.23256 2.64654 2.64653C2.23257 3.06049 2.00001 3.62195 2.00001 4.20739V19.6591C2.00001 20.2445 2.23257 20.806 2.64654 21.2199C3.0605 21.6339 3.62196 21.8665 4.20739 21.8665H8.62217M14.1406 6.41477L8.62217 11.9332L14.1406 17.4517M8.62217 11.9332H21.8665"
+                        stroke="#1A1E1B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>
+                    ورود | ثبت نام
+                </span>
+            </a>
+            <!-- /wp:html -->
 
-
-            <!-- wp:buttons -->
-            <div class="wp-block-buttons">
-
-                <!-- wp:button {"className":"is-style-outline"} -->
-                <div class="wp-block-button is-style-outline">
-                    <a class="wp-block-button__link wp-element-button">ورود / ثبت نام</a>
-                </div>
-                <!-- /wp:button -->
-
-            </div>
-            <!-- /wp:buttons -->
+            <!-- CART -->
+            <!-- wp:woocommerce/mini-cart /-->
 
         </div>
         <!-- /wp:group -->
@@ -58,8 +72,9 @@
     </div>
     <!-- /wp:group -->
 
-
-    <!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","justifyContent":"center"}} /-->
-
+    <!-- NAVIGATION -->
+    <div class="site-header__nav" style="padding-right: 75px;padding-bottom: 10px;">
+        <!-- wp:navigation {"overlayMenu":"mobile","layout":{"type":"flex","justifyContent":"start"},"style":{"spacing":{"padding":{"bottom":"30px" ,"right":"60px"}}}} /-->
+    </div>
 </header>
 <!-- /wp:group -->

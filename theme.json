@@ -128,6 +128,22 @@
 
     "spacing": {
       "blockGap": "20px"
+    },
+
+    "blocks": {
+      "navigation": {
+        "typography": {
+          "fontSize": "15px",
+          "fontWeight": "500"
+        },
+        "color": {
+          "text": "#111827",
+          "background": "transparent"
+        },
+        "spacing": {
+          "blockGap": "18px"
+        }
+      }
     }
   }
 }
