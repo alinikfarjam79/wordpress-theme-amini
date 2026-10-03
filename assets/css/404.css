@@ -1,0 +1,235 @@
+/* Custom 404 page. */
+
+.error-404-page {
+  box-sizing: border-box;
+  direction: rtl;
+  font-family: var(--wp--preset--font-family--iransans);
+  overflow: visible;
+  text-align: right;
+  width: 100%;
+}
+
+.error-404-page *,
+.error-404-page *::before,
+.error-404-page *::after {
+  box-sizing: border-box;
+}
+
+.error-404 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  margin-inline: auto;
+  padding-block: 120px 80px;
+  padding-inline: 24px;
+}
+
+.error-404__hero {
+  block-size: 350px;
+  inline-size: 505px;
+  margin-inline: auto;
+  position: relative;
+}
+
+.error-404__visual {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  line-height: 0;
+  margin: 0;
+  inline-size: 100%;
+}
+
+.error-404__illustration {
+  block-size: 350px;
+  display: block;
+  inline-size: 505px;
+  max-inline-size: none;
+  object-fit: contain;
+  transform: translate(180px, -40px);
+}
+
+.error-404__overlay-content {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  inset-block-start: 62%;
+  inset-inline: 0;
+  inline-size: 100%;
+  padding-inline: 24px;
+  position: absolute;
+  text-align: center;
+}
+
+.error-404__title {
+  color: rgba(26, 30, 27, 1);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+}
+
+.error-404__description {
+  color: rgba(74, 74, 74, 1);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  margin: 8px 0 0;
+  max-inline-size: 620px;
+  text-align: center;
+}
+
+.error-404__actions {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+  inline-size: 100%;
+  justify-content: center;
+  margin-block-start: 32px;
+  min-inline-size: 0;
+}
+
+.error-404__search,
+.error-404__home-button {
+  flex: 0 0 226px;
+  inline-size: 226px;
+  min-inline-size: 0;
+}
+
+.error-404__search-form.homepage-search-form {
+  block-size: 40px;
+  height: 40px;
+  inline-size: 226px !important;
+  width: 226px !important;
+}
+
+.error-404__home-button {
+  align-items: center;
+  background: rgba(0, 158, 0, 1);
+  block-size: 40px;
+  border-radius: 56px;
+  color: rgba(255, 255, 255, 1);
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 500;
+  gap: 12px;
+  height: 40px;
+  justify-content: center;
+  line-height: 1;
+  padding-block: 0;
+  padding-inline: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.error-404__home-button:hover,
+.error-404__home-button:active {
+  background: rgba(0, 138, 0, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.error-404__home-button:focus-visible {
+  outline: 2px solid rgba(0, 158, 0, 1);
+  outline-offset: 3px;
+}
+
+.error-404__home-button svg {
+  flex: 0 0 20px;
+  height: 20px;
+  order: 2;
+  width: 20px;
+}
+
+.error-404__home-button span {
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 870px) {
+  .error-404__hero {
+    block-size: auto;
+    display: flex;
+    flex-direction: column;
+    inline-size: min(100%, 505px);
+  }
+
+  .error-404__illustration {
+    transform: none;
+  }
+
+  .error-404__overlay-content {
+    margin-block-start: 24px;
+    padding-inline: 0;
+    position: static;
+  }
+}
+
+@media (max-width: 767px) {
+  .error-404 {
+    padding-block: 88px 64px;
+  }
+}
+
+@media (max-width: 600px) {
+  .error-404__hero {
+    aspect-ratio: 505 / 350;
+    block-size: auto;
+    inline-size: min(505px, calc(100vw - 32px));
+    transform: none;
+  }
+
+  .error-404__illustration {
+    aspect-ratio: 505 / 350;
+    block-size: auto;
+    inline-size: 100%;
+    transform: none;
+  }
+
+  .error-404__overlay-content {
+    inset-block-start: 60%;
+  }
+}
+
+@media (max-width: 499px) {
+  .error-404 {
+    padding-block: 64px 48px;
+    padding-inline: 16px;
+  }
+
+  .error-404__hero {
+    inline-size: min(100%, calc(100vw - 32px));
+  }
+
+  .error-404__overlay-content {
+    margin-block-start: 24px;
+    padding-inline: 16px;
+    position: static;
+  }
+
+  .error-404__title {
+    font-size: 22px;
+    margin-block-start: 20px;
+  }
+
+  .error-404__description {
+    font-size: 14px;
+  }
+
+  .error-404__actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .error-404__search,
+  .error-404__home-button,
+  .error-404__search-form.homepage-search-form {
+    flex-basis: auto;
+    inline-size: 100% !important;
+    width: 100% !important;
+  }
+}

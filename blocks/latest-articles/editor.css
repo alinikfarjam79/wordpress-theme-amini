@@ -1,0 +1,4 @@
+.latest-articles-editor { border:0; box-shadow:none; outline:0; }
+.latest-articles-editor a { pointer-events:none; }
+.latest-articles-editor__post { align-items:center; border-bottom:1px solid #dcdcde; display:flex; justify-content:space-between; padding:8px 0; }
+.latest-articles-editor__post > div { display:flex; gap:2px; }

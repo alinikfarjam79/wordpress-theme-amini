@@ -1,0 +1,119 @@
+/* Keep the Contact template identical in Gutenberg and on the front end. */
+
+.editor-styles-wrapper .contact-page,
+.editor-styles-wrapper .contact-page * {
+  box-sizing: border-box;
+}
+
+.editor-styles-wrapper .contact-details {
+  display: grid !important;
+  gap: 24px !important;
+  grid-template-columns: 380px 578px !important;
+}
+
+.editor-styles-wrapper .contact-details__primary {
+  block-size: 258px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  inline-size: 380px !important;
+  justify-content: space-between !important;
+}
+
+.editor-styles-wrapper .contact-details__secondary {
+  display: block !important;
+  inline-size: 578px !important;
+}
+
+.editor-styles-wrapper .contact-info-item {
+  align-items: center !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 24px !important;
+  inline-size: 100% !important;
+  justify-content: flex-start !important;
+  min-block-size: 56px !important;
+}
+
+.editor-styles-wrapper .contact-info-item > .wp-block-html,
+.editor-styles-wrapper .contact-info-item > [data-type="core/html"],
+.editor-styles-wrapper .contact-info-item > .block-editor-block-list__block[data-type="core/html"] {
+  flex: 0 0 56px !important;
+  inline-size: 56px !important;
+  max-inline-size: 56px !important;
+  min-inline-size: 56px !important;
+}
+
+.editor-styles-wrapper .contact-info-item__content {
+  display: flex !important;
+  flex: 1 1 auto !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  inline-size: auto !important;
+  max-inline-size: calc(100% - 80px) !important;
+  min-inline-size: 0 !important;
+  text-align: right !important;
+}
+
+.editor-styles-wrapper .contact-info-item__icon {
+  block-size: 56px !important;
+  display: flex !important;
+  flex: 0 0 56px !important;
+  inline-size: 56px !important;
+}
+
+.editor-styles-wrapper .contact-info-item__title,
+.editor-styles-wrapper .contact-info-item__text {
+  margin: 0 !important;
+  text-align: right !important;
+}
+
+.editor-styles-wrapper .contact-details__primary > .contact-info-item,
+.editor-styles-wrapper .contact-info-item > *,
+.editor-styles-wrapper .contact-details__secondary > .wp-block-html,
+.editor-styles-wrapper .contact-details__secondary > .contact-directions {
+  margin-block: 0 !important;
+}
+
+.editor-styles-wrapper .contact-map,
+.editor-styles-wrapper .contact-map iframe {
+  block-size: 258px !important;
+  inline-size: 100% !important;
+}
+
+.editor-styles-wrapper .contact-directions {
+  align-items: center !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 12px 24px !important;
+}
+
+.editor-styles-wrapper .contact-directions__badges {
+  align-items: center !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px 24px !important;
+}
+
+@media (max-width: 1199px) {
+  .editor-styles-wrapper .contact-details {
+    grid-template-columns: minmax(300px, 38.7%) minmax(0, 1fr) !important;
+  }
+
+  .editor-styles-wrapper .contact-details__primary,
+  .editor-styles-wrapper .contact-details__secondary {
+    inline-size: 100% !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .editor-styles-wrapper .contact-details {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .editor-styles-wrapper .contact-details__primary {
+    block-size: auto !important;
+    gap: 24px !important;
+  }
+}

@@ -1,0 +1,11 @@
+.editor-styles-wrapper .wp-block-my-theme-mini-cart,
+.editor-styles-wrapper .mini-cart-block-editor-preview {
+  display: inline-flex;
+  inline-size: auto;
+  margin: 0;
+  min-inline-size: 0;
+}
+
+.editor-styles-wrapper .mini-cart-block-editor-preview .theme-mini-cart {
+  direction: ltr;
+}

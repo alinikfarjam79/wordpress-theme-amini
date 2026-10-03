@@ -1,0 +1,75 @@
+/* Custom theme mini-cart. Intentionally isolated from WooCommerce Mini-Cart styles. */
+.wp-block-my-theme-mini-cart {
+  display: inline-flex;
+  flex: 0 0 auto;
+  inline-size: auto;
+  block-size: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.theme-mini-cart {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  inline-size: auto;
+  block-size: auto;
+  min-inline-size: 0;
+  min-block-size: 0;
+  margin: 0;
+  padding: 0;
+  color: rgba(26, 30, 27, 1);
+  direction: ltr;
+  text-decoration: none;
+}
+
+.theme-mini-cart__count {
+  display: inline-flex;
+  flex: 0 0 24px;
+  order: 1;
+  align-items: center;
+  justify-content: center;
+  inline-size: 24px;
+  block-size: 24px;
+  min-inline-size: 24px;
+  min-block-size: 24px;
+  max-inline-size: 24px;
+  max-block-size: 24px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  direction: rtl;
+  unicode-bidi: isolate;
+  white-space: nowrap;
+}
+
+.theme-mini-cart__icon {
+  display: block;
+  flex: 0 0 24px;
+  order: 2;
+  inline-size: 24px;
+  block-size: 24px;
+  min-inline-size: 24px;
+  min-block-size: 24px;
+  margin: 0;
+  padding: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='1.5 2 21.5 19.75' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.6006 2C20.2033 2.00004 19.8181 2.13559 19.5078 2.38379L17.4863 4H3.5127C2.38431 4 1.55133 5.05201 1.80957 6.15039L3.33887 12.6504C3.52486 13.4409 4.22991 14 5.04199 14H17.5137C17.9871 14 18.4201 14.2679 18.6318 14.6914C18.8076 15.0432 18.8076 15.4568 18.6318 15.8086C18.4201 16.2321 17.9871 16.5 17.5137 16.5H2.25C1.83579 16.5 1.5 16.8358 1.5 17.25C1.5 17.6642 1.83579 18 2.25 18H4.58691C4.37382 18.368 4.25 18.7942 4.25 19.25C4.25 20.6307 5.36929 21.75 6.75 21.75C8.13071 21.75 9.25 20.6307 9.25 19.25C9.25 18.7942 9.12618 18.368 8.91309 18H11.5869C11.3738 18.368 11.25 18.7942 11.25 19.25C11.25 20.6307 12.3693 21.75 13.75 21.75C15.1307 21.75 16.25 20.6307 16.25 19.25C16.25 18.7942 16.1262 18.368 15.9131 18H17.5137C18.5553 18 19.5078 17.4111 19.9736 16.4795C20.3605 15.7054 20.3605 14.7946 19.9736 14.0205C19.5078 13.0889 18.5553 12.5 17.5137 12.5H16.6973L18.4219 5.17383L20.4443 3.55469C20.4886 3.51927 20.5439 3.50004 20.6006 3.5H22.25C22.6642 3.5 23 3.16421 23 2.75C23 2.33579 22.6642 2 22.25 2H20.6006ZM6.75 18.25C7.30228 18.25 7.75 18.6977 7.75 19.25C7.75 19.8023 7.30228 20.25 6.75 20.25C6.19772 20.25 5.75 19.8023 5.75 19.25C5.75 18.6977 6.19772 18.25 6.75 18.25ZM13.75 18.25C14.3023 18.25 14.75 18.6977 14.75 19.25C14.75 19.8023 14.3023 20.25 13.75 20.25C13.1977 20.25 12.75 19.8023 12.75 19.25C12.75 18.6977 13.1977 18.25 13.75 18.25ZM15.1553 12.5H5.04199C4.92612 12.5 4.82553 12.4203 4.79883 12.3076L3.26953 5.80762C3.23261 5.65069 3.35148 5.5 3.5127 5.5H16.8027L15.1553 12.5Z' fill='%231A1E1B'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+}
+
+.site-header__actions .wp-block-my-theme-mini-cart,
+.site-header__actions .theme-mini-cart {
+  flex: 0 0 auto;
+}

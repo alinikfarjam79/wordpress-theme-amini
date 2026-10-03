@@ -1,0 +1,5 @@
+.why-amini-editor-preview { flex-direction:row !important; flex-wrap:nowrap !important; gap:0 !important; pointer-events:none; }
+@media (max-width:860px) { .why-amini-editor-preview { flex-direction:column !important; } }
+.why-amini-editor__item { border-bottom:1px solid #dcdcde; margin-bottom:12px; padding-bottom:12px; }
+.why-amini-editor__actions { display:flex; gap:6px; }
+.why-amini-editor__icon { background:#fff; border-radius:50%; display:inline-block; flex:0 0 32px; height:32px; width:32px; }

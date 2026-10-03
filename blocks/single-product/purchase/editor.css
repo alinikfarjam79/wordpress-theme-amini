@@ -1,0 +1,37 @@
+.editor-styles-wrapper .wp-block-theme-product-purchase > .block-editor-inner-blocks,
+.editor-styles-wrapper .wp-block-theme-product-purchase > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .wp-block-theme-product-purchase-info > .block-editor-inner-blocks,
+.editor-styles-wrapper .wp-block-theme-product-purchase-info > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .wp-block-theme-product-purchase-actions > .block-editor-inner-blocks,
+.editor-styles-wrapper .wp-block-theme-product-purchase-actions > .block-editor-inner-blocks > .block-editor-block-list__layout {
+  display: contents;
+}
+
+.editor-styles-wrapper .wp-block-theme-product-purchase .single-product-purchase-card {
+  width: 100%;
+}
+
+.editor-styles-wrapper .wp-block-theme-product-purchase .wp-block {
+  margin-block: 0;
+}
+
+/* Keep action children as real selectable editor boxes. */
+.editor-styles-wrapper .wp-block-theme-product-purchase-actions > .block-editor-inner-blocks,
+.editor-styles-wrapper .wp-block-theme-product-purchase-actions > .block-editor-inner-blocks > .block-editor-block-list__layout {
+  display: block;
+  width: 100%;
+}
+
+.editor-styles-wrapper .wp-block-theme-product-purchase-actions > .block-editor-inner-blocks > .block-editor-block-list__layout {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.editor-styles-wrapper .wp-block-theme-product-purchase-actions .wp-block-theme-product-add-to-cart,
+.editor-styles-wrapper .wp-block-theme-product-purchase-actions .wp-block-theme-product-bulk-order {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  position: relative;
+  width: 100%;
+}

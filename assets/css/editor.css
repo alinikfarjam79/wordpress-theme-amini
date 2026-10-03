@@ -1,0 +1,780 @@
+/* Editor-only preview helpers. Swiper itself runs on the front end. */
+html,
+body,
+.editor-styles-wrapper {
+  direction: rtl;
+  overflow-x: hidden;
+  text-align: right;
+  unicode-bidi: isolate;
+}
+
+.editor-styles-wrapper .is-root-container,
+.editor-styles-wrapper .wp-site-blocks,
+.editor-styles-wrapper .block-editor-block-list__layout,
+.editor-styles-wrapper .wp-block,
+.editor-styles-wrapper [class*="wp-container-"] {
+  direction: rtl;
+}
+
+.editor-styles-wrapper input,
+.editor-styles-wrapper textarea,
+.editor-styles-wrapper select {
+  direction: rtl;
+  text-align: right;
+}
+
+.editor-styles-wrapper .site-header,
+.editor-styles-wrapper .site-header__promo,
+.editor-styles-wrapper .hero-slider {
+  left: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: none !important;
+  position: relative !important;
+  right: auto !important;
+  transform: none !important;
+  width: 100% !important;
+}
+
+.editor-styles-wrapper .site-header {
+  z-index: auto;
+}
+
+.editor-styles-wrapper .site-header__promo {
+  min-height: 50px;
+}
+
+.editor-styles-wrapper .site-header__promo p {
+  display: block;
+  margin: 0 !important;
+  text-align: center;
+  width: 100%;
+}
+
+.editor-styles-wrapper .site-header > .block-editor-inner-blocks,
+.editor-styles-wrapper
+  .site-header
+  > .block-editor-inner-blocks
+  > .block-editor-block-list__layout {
+  display: block;
+  margin: 0 !important;
+}
+
+.editor-styles-wrapper
+  .site-header
+  > .block-editor-inner-blocks
+  > .block-editor-block-list__layout
+  > .block-editor-block-list__block {
+  margin-block: 0 !important;
+}
+
+.editor-styles-wrapper .site-header__main,
+.editor-styles-wrapper .site-header__nav {
+  margin-block-start: 0 !important;
+  margin-top: 0 !important;
+}
+
+.editor-styles-wrapper .site-header .wp-block-my-theme-header-search {
+  border: 0 !important;
+  box-sizing: border-box;
+  margin: 0 !important;
+  max-width: none !important;
+  min-inline-size: 0;
+  padding: 0 !important;
+  width: auto !important;
+}
+
+.editor-styles-wrapper .site-header .wp-block-my-theme-header-search .site-header__search {
+  display: flex;
+}
+
+.editor-styles-wrapper .site-header .wp-block-my-theme-header-search form {
+  box-sizing: border-box;
+}
+
+.editor-styles-wrapper .site-header__brand-search .wp-block-site-logo {
+  flex: 0 0 auto;
+  inline-size: 200px !important;
+  line-height: 0;
+  margin: 0 !important;
+  max-inline-size: 200px !important;
+}
+
+.editor-styles-wrapper .site-header__brand-search .wp-block-site-logo img {
+  block-size: auto !important;
+  display: block;
+  inline-size: 200px !important;
+  max-inline-size: 200px !important;
+}
+
+.editor-styles-wrapper .site-header__main > .block-editor-inner-blocks,
+.editor-styles-wrapper
+  .site-header__main
+  > .block-editor-inner-blocks
+  > .block-editor-block-list__layout {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  inline-size: 100%;
+  justify-content: space-between;
+  margin: 0 !important;
+  min-inline-size: 0;
+}
+
+.editor-styles-wrapper .site-header__brand-search > .block-editor-inner-blocks,
+.editor-styles-wrapper
+  .site-header__brand-search
+  > .block-editor-inner-blocks
+  > .block-editor-block-list__layout,
+.editor-styles-wrapper .site-header__actions > .block-editor-inner-blocks,
+.editor-styles-wrapper
+  .site-header__actions
+  > .block-editor-inner-blocks
+  > .block-editor-block-list__layout {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  margin: 0 !important;
+  min-inline-size: 0;
+}
+
+.editor-styles-wrapper .site-header__brand-search > .block-editor-inner-blocks,
+.editor-styles-wrapper
+  .site-header__brand-search
+  > .block-editor-inner-blocks
+  > .block-editor-block-list__layout {
+  flex: 0 1 auto;
+}
+
+.editor-styles-wrapper .site-header__actions > .block-editor-inner-blocks,
+.editor-styles-wrapper
+  .site-header__actions
+  > .block-editor-inner-blocks
+  > .block-editor-block-list__layout {
+  flex: 0 0 auto;
+}
+
+@media (min-width: 861px) {
+  .editor-styles-wrapper .site-header__main,
+  .editor-styles-wrapper .site-header__nav {
+    box-sizing: border-box;
+    padding-inline: 48px !important;
+  }
+
+  .editor-styles-wrapper
+    .site-header__main
+    > .block-editor-inner-blocks
+    > .block-editor-block-list__layout {
+    column-gap: 16px;
+    direction: rtl;
+    display: grid;
+    grid-template-areas: "logo search actions";
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(280px, 464px)
+      minmax(0, 1fr);
+  }
+
+  .editor-styles-wrapper
+    .site-header__main
+    .block-editor-block-list__block:has(> .site-header__brand-search),
+  .editor-styles-wrapper .site-header__brand-search,
+  .editor-styles-wrapper .site-header__brand-search > .block-editor-inner-blocks,
+  .editor-styles-wrapper
+    .site-header__brand-search
+    > .block-editor-inner-blocks
+    > .block-editor-block-list__layout {
+    display: contents;
+  }
+
+  .editor-styles-wrapper
+    .site-header__brand-search
+    .block-editor-block-list__block.wp-block-my-theme-header-logo,
+  .editor-styles-wrapper
+    .site-header__brand-search
+    .block-editor-block-list__block:has(.header-logo-block-editor-preview) {
+    direction: rtl;
+    grid-area: logo;
+    justify-self: start;
+  }
+
+  .editor-styles-wrapper
+    .site-header__brand-search
+    .block-editor-block-list__block.wp-block-my-theme-header-search,
+  .editor-styles-wrapper
+    .site-header__brand-search
+    .block-editor-block-list__block:has(.header-search-block-editor-preview) {
+    direction: rtl;
+    grid-area: search;
+    justify-self: center;
+  }
+
+  .editor-styles-wrapper
+    .site-header__main
+    .block-editor-block-list__block:has(> .site-header__actions) {
+    direction: rtl;
+    grid-area: actions;
+    justify-self: end;
+  }
+
+  .editor-styles-wrapper .site-header__main .site-header__actions {
+    justify-content: flex-start;
+  }
+
+  /*
+   * Gutenberg adds several wrappers around Group blocks. Keep those wrappers
+   * in the same flex structure as the rendered header so the logo and search
+   * remain one unit instead of placing the search in the viewport centre.
+   */
+  .editor-styles-wrapper
+    .site-header__main
+    > .block-editor-inner-blocks
+    > .block-editor-block-list__layout {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .editor-styles-wrapper
+    .site-header__main
+    .block-editor-block-list__block:has(> .site-header__brand-search) {
+    display: block;
+    flex: 0 1 auto;
+  }
+
+  .editor-styles-wrapper .site-header__brand-search,
+  .editor-styles-wrapper .site-header__brand-search > .block-editor-inner-blocks,
+  .editor-styles-wrapper
+    .site-header__brand-search
+    > .block-editor-inner-blocks
+    > .block-editor-block-list__layout {
+    align-items: center;
+    display: flex;
+    flex: 0 1 auto;
+    gap: 16px;
+  }
+
+  .editor-styles-wrapper
+    .site-header__brand-search
+    .block-editor-block-list__block.wp-block-my-theme-header-logo,
+  .editor-styles-wrapper
+    .site-header__brand-search
+    .block-editor-block-list__block:has(.header-logo-block-editor-preview),
+  .editor-styles-wrapper
+    .site-header__brand-search
+    .block-editor-block-list__block.wp-block-my-theme-header-search,
+  .editor-styles-wrapper
+    .site-header__brand-search
+    .block-editor-block-list__block:has(.header-search-block-editor-preview),
+  .editor-styles-wrapper
+    .site-header__main
+    .block-editor-block-list__block:has(> .site-header__actions) {
+    grid-area: auto;
+    justify-self: auto;
+  }
+
+  .editor-styles-wrapper
+    .site-header__brand-search
+    .block-editor-block-list__block.wp-block-my-theme-header-search,
+  .editor-styles-wrapper
+    .site-header__brand-search
+    .block-editor-block-list__block:has(.header-search-block-editor-preview) {
+    flex: 0 1 464px;
+    inline-size: 464px;
+    max-inline-size: 464px;
+  }
+}
+
+.editor-styles-wrapper .site-header__promo > .block-editor-inner-blocks,
+.editor-styles-wrapper
+  .site-header__promo
+  > .block-editor-inner-blocks
+  > .block-editor-block-list__layout,
+.editor-styles-wrapper .site-header__nav > .block-editor-inner-blocks,
+.editor-styles-wrapper
+  .site-header__nav
+  > .block-editor-inner-blocks
+  > .block-editor-block-list__layout {
+  display: block;
+  margin: 0 !important;
+}
+
+.editor-styles-wrapper .site-header__main > .block-editor-block-list__block,
+.editor-styles-wrapper .site-header__actions > .block-editor-block-list__block,
+.editor-styles-wrapper .site-header__brand-search > .block-editor-block-list__block,
+.editor-styles-wrapper .site-header__promo > .block-editor-block-list__block,
+.editor-styles-wrapper .site-header__nav > .block-editor-block-list__block,
+.editor-styles-wrapper
+  .site-header__main
+  .block-editor-block-list__layout
+  > .block-editor-block-list__block,
+.editor-styles-wrapper
+  .site-header__brand-search
+  .block-editor-block-list__layout
+  > .block-editor-block-list__block,
+.editor-styles-wrapper
+  .site-header__actions
+  .block-editor-block-list__layout
+  > .block-editor-block-list__block,
+.editor-styles-wrapper
+  .site-header__promo
+  .block-editor-block-list__layout
+  > .block-editor-block-list__block,
+.editor-styles-wrapper
+  .site-header__nav
+  .block-editor-block-list__layout
+  > .block-editor-block-list__block {
+  margin: 0 !important;
+  min-inline-size: 0;
+  width: auto;
+}
+
+.editor-styles-wrapper .site-header__nav {
+  box-sizing: border-box;
+  margin-block-start: 0 !important;
+  margin-top: 0 !important;
+  max-inline-size: none !important;
+  padding-block-start: 0 !important;
+  position: relative !important;
+  width: 100%;
+}
+
+@media (min-width: 861px) {
+  .editor-styles-wrapper .site-header__nav {
+    padding-block-start: 16px !important;
+    padding-top: 16px !important;
+  }
+
+  /*
+   * Match the front-end Navigation behaviour while links and the independent
+   * divider are reordered, removed, or added in the Site Editor.
+   */
+  .editor-styles-wrapper .site-header__nav .wp-block-navigation,
+  .editor-styles-wrapper
+    .site-header__nav
+    .wp-block-navigation__responsive-container,
+  .editor-styles-wrapper
+    .site-header__nav
+    .wp-block-navigation__responsive-container-content {
+    min-inline-size: 0;
+    width: 100%;
+  }
+
+  .editor-styles-wrapper
+    .site-header__nav
+    .wp-block-navigation__container {
+    flex-wrap: nowrap !important;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+
+  .editor-styles-wrapper
+    .site-header__nav
+    .wp-block-navigation__container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .editor-styles-wrapper
+    .site-header__nav
+    .wp-block-navigation-item,
+  .editor-styles-wrapper
+    .site-header__nav
+    .wp-block-my-theme-navigation-divider {
+    flex: 0 0 auto;
+  }
+}
+
+.editor-styles-wrapper .site-header__nav .wp-block-navigation,
+.editor-styles-wrapper .site-header__nav .wp-block-navigation__container {
+  inline-size: 100%;
+  margin-block-start: 0 !important;
+  margin-top: 0 !important;
+  max-inline-size: none !important;
+}
+
+.editor-styles-wrapper .site-header__nav .wp-block-navigation__responsive-container-open {
+  position: static !important;
+}
+
+.editor-styles-wrapper .hero-slider {
+  overflow: hidden;
+}
+
+.editor-styles-wrapper .heroSwiper,
+.editor-styles-wrapper .testimonialSwiper,
+.editor-styles-wrapper .productSwiper,
+.editor-styles-wrapper .brandSwiper,
+.editor-styles-wrapper .greenProductSwiper {
+  overflow: hidden;
+}
+
+.editor-styles-wrapper .heroSwiper {
+  max-width: none !important;
+  width: 100% !important;
+  height: 500px;
+}
+
+.editor-styles-wrapper .heroSwiper .swiper-wrapper {
+  display: block !important;
+  height: 500px;
+  transform: none !important;
+}
+
+.editor-styles-wrapper .heroSwiper .swiper-slide {
+  display: none !important;
+}
+
+.editor-styles-wrapper .heroSwiper .swiper-slide:first-child {
+  display: flex !important;
+  justify-content: flex-end !important;
+  padding: 0 48px !important;
+}
+
+.editor-styles-wrapper .heroSwiper .hero-slide-card {
+  flex: 0 0 auto;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  max-width: min(440px, calc(100% - 96px)) !important;
+}
+
+.editor-styles-wrapper .heroSwiper::before {
+  background: rgba(0, 0, 0, 0.62);
+  border-radius: 999px;
+  color: #fff;
+  content: "Slider preview";
+  direction: ltr;
+  font-size: 12px;
+  font-weight: 700;
+  left: 20px;
+  padding: 6px 12px;
+  position: absolute;
+  top: 20px;
+  z-index: 5;
+}
+
+.editor-styles-wrapper .heroSwiper .swiper-button-next,
+.editor-styles-wrapper .heroSwiper .swiper-button-prev,
+.editor-styles-wrapper .heroSwiper .swiper-pagination {
+  pointer-events: none;
+}
+
+.editor-styles-wrapper .productSwiper,
+.editor-styles-wrapper .brandSwiper,
+.editor-styles-wrapper .greenProductSwiper {
+  min-height: 120px;
+}
+
+.editor-styles-wrapper .productSwiper .swiper-wrapper:empty::before,
+.editor-styles-wrapper .brandSwiper:empty::before,
+.editor-styles-wrapper .greenProductSwiper:empty::before {
+  color: #666;
+  content: "Dynamic slider renders on the front end";
+  display: block;
+  padding: 32px;
+  text-align: center;
+}
+
+.editor-styles-wrapper .productSwiper {
+  border: 1px dashed #d9d9d9;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-top: 24px;
+  padding: 24px !important;
+  width: min(100%, 1080px);
+}
+
+.editor-styles-wrapper .productSwiper .swiper-wrapper {
+  display: grid !important;
+  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  transform: none !important;
+}
+
+.editor-styles-wrapper .productSwiper .swiper-wrapper:empty::before {
+  background:
+    linear-gradient(#f7f7f7, #f7f7f7) padding-box,
+    linear-gradient(135deg, #e5e7eb, #f3f4f6) border-box;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-shadow:
+    270px 0 0 #f7f7f7,
+    540px 0 0 #f7f7f7,
+    810px 0 0 #f7f7f7;
+  box-sizing: border-box;
+  color: #666;
+  content: "Product slider preview - products load on the front end";
+  display: flex;
+  grid-column: 1 / -1;
+  height: 180px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.editor-styles-wrapper .productSwiper .product-next,
+.editor-styles-wrapper .productSwiper .product-prev,
+.editor-styles-wrapper .productSwiper .product-pagination {
+  display: none !important;
+}
+
+.editor-styles-wrapper .brandSwiper {
+  box-sizing: border-box;
+  min-height: 104px;
+  overflow: hidden !important;
+  position: relative;
+}
+
+.editor-styles-wrapper .brandSwiper .swiper-wrapper {
+  align-items: center;
+  display: flex !important;
+  gap: 28px;
+  justify-content: space-between;
+  transform: none !important;
+  width: 100% !important;
+}
+
+.editor-styles-wrapper .brandSwiper .swiper-slide,
+.editor-styles-wrapper .brandSwiper .brand-item {
+  box-sizing: border-box;
+  flex: 0 0 calc((100% - 140px) / 6) !important;
+  max-width: calc((100% - 140px) / 6) !important;
+  min-height: 76px;
+  width: calc((100% - 140px) / 6) !important;
+}
+
+.editor-styles-wrapper .brandSwiper .brand-item img {
+  display: block;
+  height: 72px;
+  margin: 0 auto;
+  max-width: 112px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.editor-styles-wrapper .brandSwiper .brand-next,
+.editor-styles-wrapper .brandSwiper .brand-prev {
+  margin-top: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.editor-styles-wrapper .green-section {
+  box-sizing: border-box;
+  margin-inline: auto !important;
+  max-width: min(1180px, calc(100% - 48px)) !important;
+  overflow: hidden;
+  padding: 34px 48px !important;
+  width: min(1180px, calc(100% - 48px)) !important;
+}
+
+.editor-styles-wrapper .green-section .green-wrapper {
+  align-items: stretch !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 24px !important;
+}
+
+.editor-styles-wrapper .green-section .green-right {
+  align-items: center !important;
+  display: flex !important;
+  direction: rtl;
+  flex: 0 0 auto !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  text-align: right;
+  width: 100% !important;
+}
+
+.editor-styles-wrapper .green-section .green-right h2 {
+  margin: 0 !important;
+}
+
+.editor-styles-wrapper .green-section .green-offers-button {
+  margin: 0 !important;
+}
+
+.editor-styles-wrapper .green-section .greenProductSwiper {
+  box-sizing: border-box;
+  flex: 0 0 auto !important;
+  min-height: 300px;
+  overflow: hidden !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.editor-styles-wrapper .green-section .greenProductSwiper .swiper-wrapper {
+  align-items: stretch;
+  display: flex !important;
+  gap: 18px;
+  justify-content: flex-start;
+  transform: none !important;
+  width: max-content !important;
+}
+
+.editor-styles-wrapper .green-section .greenProductSwiper .swiper-slide,
+.editor-styles-wrapper .green-section .greenProductSwiper .swiper-slide.green-product-card {
+  flex: 0 0 200px !important;
+  height: 300px !important;
+  max-width: 200px !important;
+  min-height: 300px !important;
+  width: 200px !important;
+}
+
+.editor-styles-wrapper .green-section .green-prev,
+.editor-styles-wrapper .green-section .green-next {
+  display: flex !important;
+  pointer-events: none;
+}
+
+.editor-styles-wrapper .site-footer {
+  background: #f8f5f0;
+  box-sizing: border-box;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 80px !important;
+  max-width: none !important;
+  overflow: visible;
+  padding: 70px 20px 25px !important;
+  position: relative !important;
+  width: 100% !important;
+}
+
+.editor-styles-wrapper .site-footer .footer-newsletter {
+  left: 50% !important;
+  margin: 0 !important;
+  max-width: none !important;
+  position: absolute !important;
+  right: auto !important;
+  top: -38px !important;
+  transform: translateX(-50%) !important;
+  width: min(760px, calc(100% - 40px)) !important;
+  z-index: 2;
+}
+
+.editor-styles-wrapper .site-footer .footer-newsletter-form {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+  direction: rtl;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  min-height: 74px;
+  padding: 12px 24px;
+}
+
+.editor-styles-wrapper .site-footer .footer-newsletter-form input {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  box-sizing: border-box;
+  height: 34px;
+  padding: 0 14px;
+  text-align: right;
+  width: 180px;
+}
+
+.editor-styles-wrapper .site-footer .footer-newsletter-form button {
+  background: #00a000;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 700;
+  height: 36px;
+  min-width: 58px;
+}
+
+.editor-styles-wrapper .site-footer .footer-main {
+  margin: 0 auto !important;
+  max-width: 1180px !important;
+  width: 100%;
+}
+
+.editor-styles-wrapper .site-footer .footer-columns {
+  align-items: flex-start !important;
+  direction: rtl;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 55px !important;
+  justify-content: space-between;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.editor-styles-wrapper .site-footer .footer-columns > .wp-block-column {
+  flex-basis: 0 !important;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.editor-styles-wrapper .site-footer .footer-brand {
+  text-align: right;
+}
+
+.editor-styles-wrapper .site-footer .footer-brand .wp-block-site-logo,
+.editor-styles-wrapper .site-footer .footer-brand .wp-block-site-logo a {
+  display: inline-flex;
+}
+
+.editor-styles-wrapper .site-footer .footer-brand .wp-block-site-logo img {
+  height: auto !important;
+  max-width: 170px !important;
+  width: auto !important;
+}
+
+.editor-styles-wrapper .site-footer .footer-socials,
+.editor-styles-wrapper .site-footer .footer-certificates {
+  display: flex;
+}
+
+.editor-styles-wrapper .site-footer .footer-socials {
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.editor-styles-wrapper .site-footer .footer-certificates {
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.editor-styles-wrapper .site-footer .footer-copy {
+  text-align: center;
+  width: 100%;
+}
+
+.editor-styles-wrapper .wp-block-shortcode textarea {
+  direction: rtl;
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .editor-styles-wrapper .productSwiper .swiper-wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .editor-styles-wrapper .productSwiper .swiper-wrapper:empty::before {
+    box-shadow:
+      270px 0 0 #f7f7f7,
+      0 196px 0 #f7f7f7,
+      270px 196px 0 #f7f7f7;
+  }
+
+  .editor-styles-wrapper .brandSwiper .swiper-wrapper {
+    gap: 18px;
+    justify-content: flex-start;
+  }
+
+  .editor-styles-wrapper .brandSwiper .swiper-slide,
+  .editor-styles-wrapper .brandSwiper .brand-item {
+    flex-basis: calc((100% - 54px) / 4) !important;
+    max-width: calc((100% - 54px) / 4) !important;
+    width: calc((100% - 54px) / 4) !important;
+  }
+}

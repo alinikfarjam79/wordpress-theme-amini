@@ -1,0 +1,12 @@
+{
+  "$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"my-theme/why-amini","version":"1.0.2","title":"چرا رنگ امینی؟","category":"theme","icon":"awards","description":"مزیت‌ها و تصویر معرفی رنگ امینی","textdomain":"my-theme",
+  "attributes":{
+    "title":{"type":"string","default":"چرا رنگ امینی؟"},
+    "items":{"type":"array","default":["۴۷ سال تجربه فروش","مشاوره تخصصی","تنوع محصولات","قیمت مناسب"]},
+    "imageId":{"type":"number","default":0},
+    "imageUrl":{"type":"string","default":"https://aminirang.ir/wp-content/uploads/2026/06/Photo.png"},
+    "imageAlt":{"type":"string","default":"مشاوره و فروش رنگ ساختمانی"}
+  },
+  "supports":{"anchor":true,"className":true,"html":false,"multiple":true},
+  "editorScript":"file:./index.js","editorStyle":"file:./editor.css","style":"file:./style.css","render":"file:./render.php"
+}

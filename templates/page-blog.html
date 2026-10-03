@@ -1,0 +1,39 @@
+<!-- wp:template-part {"slug":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"blog-list-page","layout":{"type":"default"}} -->
+<main class="wp-block-group blog-list-page">
+    <!-- wp:group {"tagName":"section","className":"blog-list-hero","layout":{"type":"default"}} -->
+    <section class="wp-block-group blog-list-hero">
+        <!-- wp:group {"className":"blog-list-hero__inner","layout":{"type":"default"}} -->
+        <div class="wp-block-group blog-list-hero__inner">
+            <!-- wp:paragraph {"className":"blog-list-hero__eyebrow"} -->
+            <p class="blog-list-hero__eyebrow">مقاله‌ها</p>
+            <!-- /wp:paragraph -->
+
+            <!-- wp:heading {"level":1,"className":"blog-list-hero__title"} -->
+            <h1 class="wp-block-heading blog-list-hero__title">مجله رنگ و ابزار</h1>
+            <!-- /wp:heading -->
+
+            <!-- wp:paragraph {"className":"blog-list-hero__description"} -->
+            <p class="blog-list-hero__description">از انتخاب رنگ مناسب تا اجرای حرفه‌ای، نکات کاربردی و راهنمای تخصصی برای پروژه‌های شما</p>
+            <!-- /wp:paragraph -->
+
+            <!-- wp:shortcode -->
+            [theme_blog_list_search placeholder="جستجو در بین مقاله‌ها"]
+            <!-- /wp:shortcode -->
+        </div>
+        <!-- /wp:group -->
+    </section>
+    <!-- /wp:group -->
+
+    <!-- wp:group {"tagName":"section","className":"blog-list-content","layout":{"type":"default"}} -->
+    <section class="wp-block-group blog-list-content">
+        <!-- wp:my-theme/blog-list-toolbar {"sortingLabel":"مرتب سازی:","countSuffix":"مقاله"} /-->
+
+        <!-- wp:my-theme/blog-list-results {"emptyText":"مقاله‌ای پیدا نشد.","postsPerPage":6} /-->
+    </section>
+    <!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer"} /-->

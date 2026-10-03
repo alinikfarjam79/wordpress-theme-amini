@@ -1,0 +1,5 @@
+{
+  "$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"theme/article-meta","version":"1.0.0","title":"اطلاعات مقاله","category":"theme","icon":"info-outline","textdomain":"my-theme",
+  "attributes":{"showAvatar":{"type":"boolean","default":true},"wordsPerMinute":{"type":"number","default":200},"readingLabel":{"type":"string","default":"زمان مطالعه:"},"minuteLabel":{"type":"string","default":"دقیقه"},"dateLabel":{"type":"string","default":"تاریخ انتشار:"}},
+  "usesContext":["postId","postType"],"supports":{"align":false,"html":false,"customClassName":true},"editorScript":"file:./index.js","style":"my-theme-single-article","render":"file:./render.php"
+}

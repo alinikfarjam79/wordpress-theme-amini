@@ -1,0 +1,18 @@
+.wp-block-my-theme-navigation-divider {
+  align-items: center;
+  align-self: center;
+  display: inline-flex;
+  flex: 0 0 1px;
+  height: 30px;
+  justify-content: center;
+  margin: 0;
+  min-width: 1px;
+  width: 1px;
+  background: #555;
+}
+
+@media (max-width: 860px) {
+  .wp-block-my-theme-navigation-divider {
+    display: none !important;
+  }
+}

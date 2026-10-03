@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "theme/single-product-content",
+  "version": "1.0.0",
+  "title": "Single Product Content",
+  "description": "Displays the custom dynamic WooCommerce single-product layout.",
+  "category": "woocommerce",
+  "icon": "products",
+  "textdomain": "my-theme",
+  "providesContext": {
+    "theme/productId": "productId"
+  },
+  "attributes": {
+    "productId": {
+      "type": "number"
+    }
+  },
+  "usesContext": ["postId", "postType"],
+  "supports": {
+    "align": false,
+    "anchor": false,
+    "customClassName": true,
+    "html": false
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "style": "my-theme-single-product"
+}

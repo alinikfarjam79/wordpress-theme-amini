@@ -1,0 +1,1 @@
+{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"theme/product-meta","version":"1.0.0","title":"برند و دسته‌بندی محصول","category":"woocommerce","icon":"tag","textdomain":"my-theme","parent":["theme/product-information"],"usesContext":["postId","postType","theme/productId"],"supports":{"html":false,"customClassName":false},"render":"file:./render.php"}

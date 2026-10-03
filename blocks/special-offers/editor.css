@@ -1,0 +1,7 @@
+.special-offers-editor { border:0; box-shadow:none; outline:0; }
+.special-offers-editor .green-section { pointer-events:none; }
+.special-offers-editor__item { border-bottom:1px solid #dcdcde; padding:8px 0; }
+.special-offers-editor__product { align-items:center; display:flex; flex-wrap:wrap; gap:6px 10px; justify-content:space-between; }
+.special-offers-editor__product-title { flex:1 1 150px; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.special-offers-editor__actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:2px; }
+.special-offers-editor__replace { margin-top:8px; }

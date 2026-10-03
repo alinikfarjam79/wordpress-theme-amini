@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "theme/product-main",
+  "version": "1.0.0",
+  "title": "Product Main",
+  "category": "woocommerce",
+  "icon": "products",
+  "textdomain": "my-theme",
+  "parent": ["theme/single-product-content"],
+  "usesContext": ["postId", "postType", "theme/productId"],
+  "supports": {
+    "align": false,
+    "anchor": false,
+    "customClassName": true,
+    "html": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "render": "file:./render.php"
+}

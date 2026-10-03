@@ -1,0 +1,5 @@
+.brand-slider-editor { border: 0 !important; box-shadow: none !important; min-height: 180px; outline: 0 !important; }
+.brand-slider-editor .brand-slider-section { pointer-events: none; }
+.brand-slider-editor__item { border-bottom: 1px solid #dcdcde; margin-bottom: 16px; padding-bottom: 16px; }
+.brand-slider-editor__item img { display: block; height: 64px; margin: 8px 0; max-width: 120px; object-fit: contain; }
+.brand-slider-editor__actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }

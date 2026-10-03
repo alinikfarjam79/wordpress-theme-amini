@@ -1,0 +1,33 @@
+{
+  "$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"my-theme/latest-articles","version":"1.0.0","title":"مقالات و اخبار","category":"theme","icon":"admin-post","description":"نمایش قابل ویرایش آخرین یا مقالات انتخابی","textdomain":"my-theme",
+  "attributes":{
+    "title":{"type":"string","default":"مقاله‌ها و اخبار"},
+    "showViewAll":{"type":"boolean","default":true},
+    "viewAllLead":{"type":"string","default":"مشاهده"},
+    "viewAllText":{"type":"string","default":"همه"},
+    "viewAllUrl":{"type":"string","default":""},
+    "postIds":{"type":"array","items":{"type":"number"},"default":[]},
+    "relatedToCurrentPost":{"type":"boolean","default":false},
+    "postsCount":{"type":"number","default":3},
+    "categoryId":{"type":"number","default":0},
+    "orderBy":{"type":"string","default":"date"},
+    "order":{"type":"string","default":"DESC"},
+    "showExcerpt":{"type":"boolean","default":true},
+    "excerptLength":{"type":"number","default":16},
+    "showReadMore":{"type":"boolean","default":true},
+    "readMoreText":{"type":"string","default":"بیشتر بخوانید"},
+    "showPagination":{"type":"boolean","default":true},
+    "cardBackgroundColor":{"type":"string","default":""},
+    "cardTitleColor":{"type":"string","default":""},
+    "cardExcerptColor":{"type":"string","default":""},
+    "cardLinkColor":{"type":"string","default":""},
+    "cardRadius":{"type":"number","default":12},
+    "imageRadius":{"type":"number","default":10},
+    "titleSize":{"type":"number","default":20},
+    "excerptSize":{"type":"number","default":12},
+    "readMoreSize":{"type":"number","default":14}
+  },
+  "usesContext":["postId","postType"],
+  "supports":{"align":["full"],"anchor":true,"className":true,"html":false,"multiple":true},
+  "editorScript":"file:./index.js","editorStyle":"file:./editor.css","style":"file:./style.css","render":"file:./render.php"
+}

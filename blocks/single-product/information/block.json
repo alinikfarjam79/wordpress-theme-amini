@@ -1,0 +1,16 @@
+{
+  "$schema":"https://schemas.wp.org/trunk/block.json",
+  "apiVersion":3,
+  "name":"theme/product-information",
+  "version":"1.0.0",
+  "title":"اطلاعات محصول",
+  "category":"woocommerce",
+  "icon":"info-outline",
+  "textdomain":"my-theme",
+  "parent":["theme/product-main"],
+  "usesContext":["postId","postType","theme/productId"],
+  "supports":{"align":false,"anchor":false,"customClassName":false,"html":false},
+  "editorScript":"file:./index.js",
+  "editorStyle":"file:./editor.css",
+  "render":"file:./render.php"
+}

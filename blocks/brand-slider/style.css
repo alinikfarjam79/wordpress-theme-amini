@@ -1,0 +1,7 @@
+.wp-block-my-theme-brand-slider.brand-slider-section { border: 0 !important; box-shadow: none !important; margin-block-end: 0 !important; outline: 0 !important; }
+.brand-slider-section .brand-item__link { align-items: center; display: flex; height: 100%; justify-content: center; width: 100%; }
+.brand-slider-section .brand-next,
+.brand-slider-section .brand-prev { padding: 0; }
+.wp-block-my-theme-brand-slider + .main-wrapper { margin-block-start: 160px !important; }
+@media (min-width:861px) and (max-width:1100px) { .wp-block-my-theme-brand-slider + .main-wrapper { margin-block-start:70px !important; } }
+@media (max-width:860px) { .wp-block-my-theme-brand-slider + .main-wrapper { margin-block-start:40px !important; } }

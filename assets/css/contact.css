@@ -1,0 +1,371 @@
+/* Contact page. All visible content remains editable as core blocks in FSE. */
+
+.contact-page,
+.contact-intro {
+  box-sizing: border-box;
+  direction: rtl;
+}
+
+.contact-page {
+  inline-size: 100%;
+  margin: 0;
+  padding: 64px 229px;
+}
+
+.contact-page *,
+.contact-page *::before,
+.contact-page *::after {
+  box-sizing: border-box;
+}
+
+.contact-intro {
+  inline-size: 100%;
+  margin: 0;
+  max-inline-size: none !important;
+  padding: 0;
+  text-align: center;
+}
+
+.contact-intro__title {
+  color: rgba(0, 158, 0, 1);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.contact-intro__description {
+  color: rgba(26, 30, 27, 1);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  margin: 0;
+  text-align: center;
+}
+
+.contact-details {
+  display: grid;
+  direction: rtl;
+  gap: 24px;
+  grid-template-columns: 380px 578px;
+  inline-size: 100%;
+  margin: 40px 0 0;
+  max-inline-size: none !important;
+  padding: 0;
+}
+
+.contact-details__primary {
+  block-size: 258px;
+  display: flex;
+  flex-direction: column;
+  inline-size: 380px;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-details__secondary {
+  block-size: auto;
+  inline-size: 578px;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-map {
+  block-size: 258px;
+  inline-size: 100%;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+.contact-map iframe {
+  block-size: 100%;
+  display: block;
+  inline-size: 100%;
+  min-block-size: 258px;
+}
+
+.contact-directions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  inline-size: 100%;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.contact-directions__label {
+  color: rgba(26, 30, 27, 1);
+  flex: 0 0 auto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.contact-directions__badges {
+  align-items: center;
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 5px;
+}
+
+.contact-directions__badge {
+  align-items: center;
+  block-size: 32px;
+  background: rgba(246, 245, 245, 1);
+  border-radius: 8px;
+  color: rgba(74, 74, 74, 1);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 14px;
+  font-weight: 400;
+  gap: 8px;
+  justify-content: center;
+  line-height: 1;
+  padding-inline: 8px;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.contact-directions__badge:hover {
+  background: rgba(235, 234, 234, 1);
+  color: rgba(74, 74, 74, 1);
+}
+
+.contact-directions__badge:focus-visible {
+  outline: 2px solid rgba(0, 158, 0, 1);
+  outline-offset: 2px;
+}
+
+.contact-directions__badge svg {
+  block-size: 16px;
+  flex: 0 0 16px;
+  inline-size: 16px;
+}
+
+.contact-info-item {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px;
+  inline-size: 100%;
+  margin: 0;
+  min-block-size: 56px;
+  padding: 0;
+}
+
+.contact-info-item__icon {
+  align-items: center;
+  block-size: 56px;
+  display: flex;
+  flex: 0 0 56px;
+  inline-size: 56px;
+  justify-content: center;
+}
+
+.contact-info-item__icon svg {
+  block-size: 24px;
+  display: block;
+  inline-size: 24px;
+}
+
+.contact-info-item__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 8px;
+  inline-size: 100%;
+  margin: 0;
+  min-inline-size: 0;
+  padding: 0;
+  text-align: right;
+}
+
+.contact-info-item__title,
+.contact-info-item__text {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  text-align: right;
+}
+
+.contact-info-item__title {
+  color: rgba(26, 30, 27, 1);
+  font-weight: 500;
+}
+
+.contact-info-item__text {
+  color: rgba(74, 74, 74, 1);
+  font-weight: 400;
+}
+
+.contact-info-item__text--phone {
+  direction: ltr;
+  text-align: right;
+  unicode-bidi: isolate;
+}
+
+.contact-messengers {
+  border-top: 1px solid rgba(217, 217, 217, 1);
+  inline-size: 100%;
+  margin: 32px 0 0;
+  max-inline-size: none !important;
+  padding: 32px 0 0;
+  text-align: center;
+}
+
+.contact-messengers__title {
+  color: rgba(26, 30, 27, 1);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.contact-messengers__description {
+  color: rgba(26, 30, 27, 1);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  margin: 0;
+  text-align: center;
+}
+
+.contact-messenger-badges {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 80px;
+  inline-size: 100%;
+  justify-content: center;
+  margin: 32px 0 0;
+  max-inline-size: none !important;
+  padding: 0;
+}
+
+.contact-messenger-badge {
+  align-items: center;
+  block-size: 56px;
+  border: 0.5px solid rgba(217, 217, 217, 1);
+  border-radius: 4px;
+  color: rgba(26, 30, 27, 1);
+  display: inline-flex;
+  flex: 0 0 185px;
+  font-size: 16px;
+  font-weight: 400;
+  gap: 30px;
+  inline-size: 185px;
+  justify-content: center;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.contact-messenger-badge__icon {
+  align-items: center;
+  block-size: 24px;
+  display: inline-flex;
+  flex: 0 0 25px;
+  inline-size: 25px;
+  justify-content: center;
+}
+
+.contact-messenger-badge__icon svg {
+  display: block;
+  max-block-size: 24px;
+  max-inline-size: 25px;
+}
+
+@media (max-width: 1199px) {
+  .contact-page {
+    padding-inline: 64px;
+  }
+
+  .contact-details {
+    grid-template-columns: minmax(300px, 38.7%) minmax(0, 1fr);
+  }
+
+  .contact-details__primary,
+  .contact-details__secondary {
+    inline-size: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-page {
+    padding: 48px 32px;
+  }
+
+  .contact-details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contact-details__primary {
+    block-size: auto;
+    gap: 24px;
+  }
+
+  .contact-details__secondary {
+    block-size: auto;
+    min-block-size: 258px;
+  }
+
+  .contact-directions {
+    align-items: flex-start;
+  }
+
+  .contact-messenger-badges {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 479px) {
+  .contact-page {
+    padding: 40px 20px;
+  }
+
+  .contact-intro__title {
+    font-size: 21px;
+    line-height: 1.6;
+  }
+
+  .contact-info-item {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 499px) {
+  .contact-directions__badge span {
+    font-size: 0;
+  }
+
+  .contact-directions__badge span::after {
+    font-size: 14px;
+  }
+
+  .contact-directions__badge:nth-child(1) span::after {
+    content: "گوگل";
+  }
+
+  .contact-directions__badge:nth-child(2) span::after {
+    content: "بلد";
+  }
+
+  .contact-directions__badge:nth-child(3) span::after {
+    content: "نشان";
+  }
+
+  .contact-messenger-badge {
+    flex-basis: 155px;
+    inline-size: 155px;
+  }
+}

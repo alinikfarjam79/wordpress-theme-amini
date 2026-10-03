@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "my-theme/mini-cart",
+  "version": "1.0.0",
+  "title": "سبد خرید کوچک",
+  "category": "theme",
+  "icon": "cart",
+  "description": "نمایش سبد خرید کوچک و تعداد محصولات",
+  "textdomain": "my-theme",
+  "keywords": ["سبد خرید", "سبد خرید کوچک", "mini cart", "cart", "woocommerce"],
+  "supports": {
+    "align": false,
+    "anchor": false,
+    "className": true,
+    "html": false,
+    "inserter": true,
+    "multiple": true,
+    "reusable": true,
+    "lock": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "render": "file:./render.php"
+}

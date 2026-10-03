@@ -1,0 +1,15 @@
+.wp-block-my-theme-why-amini.why-box {
+  border: 0;
+  box-shadow: none;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 0 !important;
+  margin-inline: auto;
+  outline: 0;
+}
+@media (max-width: 860px) {
+  .wp-block-my-theme-why-amini.why-box {
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+  }
+}

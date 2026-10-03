@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "theme/product-category-sidebar",
+  "version": "1.0.0",
+  "title": "Product Category Sidebar",
+  "category": "woocommerce",
+  "icon": "sidebar",
+  "textdomain": "my-theme",
+  "parent": ["theme/product-category-layout"],
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "className": true,
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "blockGap": true
+    },
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "style": "my-theme-product-archive"
+}

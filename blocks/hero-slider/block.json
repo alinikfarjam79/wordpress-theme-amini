@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "my-theme/hero-slider",
+  "version": "1.0.0",
+  "title": "اسلایدر اصلی",
+  "category": "theme",
+  "icon": "slides",
+  "description": "اسلایدر قابل ویرایش صفحه اصلی",
+  "textdomain": "my-theme",
+  "keywords": ["اسلایدر", "اسلاید", "بنر", "hero", "slider"],
+  "attributes": {
+    "slides": {
+      "type": "array",
+      "default": [
+        {"imageId":0,"imageUrl":"https://aminirang.ir/wp-content/uploads/2026/06/55990528c1973b6799f0dcc9e8cce141e2830ebc.webp","imageAlt":"","title":"رنگ ساختمان در ده رنگ متنوع موجود شد","buttonText":"مشاهده رنگ‌ها","buttonUrl":"#","contentPosition":"right","mobileFocalPoint":{"x":0.5,"y":0.5}},
+        {"imageId":0,"imageUrl":"https://aminirang.ir/wp-content/uploads/2026/06/55990528c1973b6799f0dcc9e8cce141e2830ebc.webp","imageAlt":"","title":"ابزار و رنگ مورد نیازتان را سریع‌تر پیدا کنید","buttonText":"مشاهده محصولات","buttonUrl":"#","contentPosition":"right","mobileFocalPoint":{"x":0.5,"y":0.5}}
+      ]
+    },
+    "autoplay": {"type":"boolean","default":true},
+    "delay": {"type":"number","default":3000},
+    "loop": {"type":"boolean","default":true},
+    "showNavigation": {"type":"boolean","default":true},
+    "showPagination": {"type":"boolean","default":true}
+  },
+  "supports": {"align":["full"],"anchor":true,"className":true,"html":false,"multiple":true},
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "render": "file:./render.php"
+}

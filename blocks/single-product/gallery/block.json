@@ -1,0 +1,14 @@
+{
+  "$schema":"https://schemas.wp.org/trunk/block.json",
+  "apiVersion":3,
+  "name":"theme/product-gallery",
+  "version":"1.0.0",
+  "title":"گالری تصاویر محصول",
+  "category":"woocommerce",
+  "icon":"format-gallery",
+  "textdomain":"my-theme",
+  "parent":["theme/product-main"],
+  "usesContext":["postId","postType","theme/productId"],
+  "supports":{"align":false,"anchor":false,"customClassName":false,"html":false},
+  "render":"file:./render.php"
+}

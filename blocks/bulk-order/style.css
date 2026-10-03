@@ -1,0 +1,85 @@
+.wp-block-my-theme-bulk-order.bulk-pattern { border:0; box-shadow:none; outline:0; }
+.wp-block-my-theme-bulk-order.bulk-pattern .bulk-inner {
+  align-items:center;
+  box-sizing:border-box;
+  direction:rtl;
+  flex-wrap:wrap !important;
+  gap:32px;
+  justify-content:space-evenly;
+  overflow:visible;
+  padding-inline:clamp(24px,5vw,80px);
+}
+.wp-block-my-theme-bulk-order.bulk-pattern .bulk-content {
+  align-items:center;
+  box-sizing:border-box;
+  display:flex;
+  flex:1 1 520px;
+  flex-direction:column;
+  min-width:0;
+  text-align:center;
+  width:auto;
+}
+.wp-block-my-theme-bulk-order.bulk-pattern .bulk-content > *,
+.wp-block-my-theme-bulk-order.bulk-pattern .bulk-content .wp-block-heading,
+.wp-block-my-theme-bulk-order.bulk-pattern .bulk-content .wp-block-paragraph {
+  align-self:center;
+  box-sizing:border-box;
+  width:100%;
+}
+.wp-block-my-theme-bulk-order.bulk-pattern .bulk-content > * {
+  margin-inline:auto;
+  max-width:100%;
+  text-align:center;
+}
+.wp-block-my-theme-bulk-order.bulk-pattern .wp-block-buttons {
+  align-items:center;
+  display:flex;
+  justify-content:center !important;
+  margin-inline:auto;
+  width:100%;
+}
+.wp-block-my-theme-bulk-order.bulk-pattern .wp-block-button {
+  margin-inline:auto;
+}
+.wp-block-my-theme-bulk-order.bulk-pattern .latest-articles-btn {
+  box-sizing:border-box;
+  height:var(--bulk-order-button-height,44px);
+  min-height:var(--bulk-order-button-height,44px);
+  padding-block:0;
+}
+.wp-block-my-theme-bulk-order.bulk-pattern h2,
+.wp-block-my-theme-bulk-order.bulk-pattern p,
+.wp-block-my-theme-bulk-order.bulk-pattern .wp-block-heading,
+.wp-block-my-theme-bulk-order.bulk-pattern .wp-block-paragraph {
+  direction:rtl;
+  text-align:center !important;
+}
+.wp-block-my-theme-bulk-order.bulk-pattern figure.wp-block-image {
+  flex:0 1 375px;
+  margin-inline:auto;
+  max-width:100%;
+}
+.wp-block-my-theme-bulk-order.bulk-pattern figure.wp-block-image img {
+  object-fit:contain;
+}
+@media (max-width:860px) {
+  .wp-block-my-theme-bulk-order.bulk-pattern .bulk-inner {
+    flex-direction:column !important;
+  }
+  .wp-block-my-theme-bulk-order.bulk-pattern .bulk-content {
+    flex-basis:auto;
+    width:100%;
+  }
+  .wp-block-my-theme-bulk-order.bulk-pattern .wp-block-button {
+    width:auto !important;
+  }
+  .wp-block-my-theme-bulk-order.bulk-pattern .latest-articles-btn {
+    align-items:center;
+    display:inline-flex;
+    justify-content:center;
+    line-height:1.2 !important;
+    min-width:max-content;
+    white-space:nowrap;
+    width:auto !important;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "my-theme/header-logo",
+  "version": "1.0.0",
+  "title": "لوگوی هدر",
+  "category": "theme",
+  "icon": "format-image",
+  "description": "لوگوی قابل ویرایش هدر سایت",
+  "textdomain": "my-theme",
+  "keywords": ["لوگو", "هدر", "logo", "header"],
+  "attributes": {
+    "mediaId": { "type": "number", "default": 0 },
+    "mediaUrl": { "type": "string", "default": "" },
+    "alt": { "type": "string", "default": "" }
+  },
+  "supports": { "align": false, "anchor": false, "className": true, "html": false },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "render": "file:./render.php"
+}

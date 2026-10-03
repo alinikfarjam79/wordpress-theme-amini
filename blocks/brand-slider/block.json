@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "my-theme/brand-slider",
+  "version": "1.0.2",
+  "title": "برندهای معتبر موجود",
+  "category": "theme",
+  "icon": "images-alt2",
+  "description": "اسلایدر قابل ویرایش لوگوی برندها",
+  "textdomain": "my-theme",
+  "attributes": {
+    "title": {"type":"string","default":"برندهای معتبر موجود"},
+    "useRegisteredBrands": {"type":"boolean","default":true},
+    "brands": {"type":"array","default":[]},
+    "linkBrands": {"type":"boolean","default":false},
+    "showNavigation": {"type":"boolean","default":true},
+    "loop": {"type":"boolean","default":false},
+    "autoplay": {"type":"boolean","default":false},
+    "delay": {"type":"number","default":3000},
+    "desktopGap": {"type":"number","default":68},
+    "tabletGap": {"type":"number","default":24},
+    "mobileGap": {"type":"number","default":16}
+  },
+  "supports": {"align":["wide","full"],"anchor":true,"className":true,"html":false,"multiple":true,"spacing":{"margin":true,"padding":true}},
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}

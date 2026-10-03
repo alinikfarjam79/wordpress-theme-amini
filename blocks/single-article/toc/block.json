@@ -1,0 +1,5 @@
+{
+  "$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"theme/article-toc","version":"1.0.0","title":"فهرست مطالب مقاله","category":"theme","icon":"list-view","textdomain":"my-theme",
+  "attributes":{"title":{"type":"string","default":"در این مقاله می‌خوانید:"},"includeNumberedParagraphs":{"type":"boolean","default":true}},
+  "usesContext":["postId","postType"],"supports":{"align":false,"html":false,"customClassName":true},"editorScript":"file:./index.js","viewScript":"file:./view.js","style":"my-theme-single-article","render":"file:./render.php"
+}

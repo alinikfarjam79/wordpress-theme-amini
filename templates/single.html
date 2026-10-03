@@ -1,0 +1,33 @@
+<!-- wp:template-part {"slug":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"single-article-page","layout":{"type":"default"}} -->
+<main class="wp-block-group single-article-page">
+    <!-- wp:theme/article-breadcrumb /-->
+
+    <!-- wp:group {"className":"single-article-intro","layout":{"type":"default"}} -->
+    <div class="wp-block-group single-article-intro">
+        <!-- wp:theme/article-categories /-->
+        <!-- wp:post-title {"level":1,"className":"single-article-title"} /-->
+        <!-- wp:post-excerpt {"moreText":"","showMoreOnNewLine":false,"className":"single-article-excerpt"} /-->
+        <!-- wp:theme/article-meta /-->
+        <!-- wp:post-featured-image {"className":"single-article-featured-image"} /-->
+
+        <!-- wp:group {"className":"single-article-body-layout","layout":{"type":"default"}} -->
+        <div class="wp-block-group single-article-body-layout">
+            <!-- wp:group {"className":"single-article-content-column","layout":{"type":"default"}} -->
+            <div class="wp-block-group single-article-content-column">
+                <!-- wp:post-content {"className":"single-article-body-content","layout":{"type":"default"}} /-->
+                <!-- wp:theme/article-comments /-->
+            </div>
+            <!-- /wp:group -->
+            <!-- wp:theme/article-toc /-->
+        </div>
+        <!-- /wp:group -->
+
+        <!-- wp:my-theme/latest-articles {"title":"مقالات مرتبط","relatedToCurrentPost":true,"showViewAll":false,"postsCount":3,"className":"single-article-related"} /-->
+    </div>
+    <!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer"} /-->

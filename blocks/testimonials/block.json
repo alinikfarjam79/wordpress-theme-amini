@@ -1,0 +1,13 @@
+{
+  "$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"my-theme/testimonials","version":"1.0.2","title":"نظرات مشتریان","category":"theme","icon":"format-quote","description":"اسلایدر قابل ویرایش نظرات مشتریان","textdomain":"my-theme",
+  "attributes":{
+    "title":{"type":"string","default":"نظرات مشتریان ما"},
+    "testimonials":{"type":"array","default":[
+      {"imageId":0,"imageUrl":"https://i.pravatar.cc/100?img=12","imageAlt":"","name":"آقای محمدی","role":"نقاش","text":"قبل از خرید به من مشاوره دادند و خرید به اندازه و با قیمت خوبی داشتم و مجدد خرید خواهم کرد."},
+      {"imageId":0,"imageUrl":"https://i.pravatar.cc/100?img=32","imageAlt":"","name":"آقای رضایی","role":"مشتری","text":"قبل از خرید به من مشاوره دادند و خرید به اندازه و با قیمت خوبی داشتم و مجدد خرید خواهم کرد."}
+    ]},
+    "showNavigation":{"type":"boolean","default":true},"loop":{"type":"boolean","default":false},"autoplay":{"type":"boolean","default":false},"delay":{"type":"number","default":4000}
+  },
+  "supports":{"anchor":true,"className":true,"html":false,"multiple":true},
+  "editorScript":"file:./index.js","editorStyle":"file:./editor.css","style":"file:./style.css","viewScript":"file:./view.js","render":"file:./render.php"
+}

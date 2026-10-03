@@ -1,0 +1,23 @@
+.editor-styles-wrapper .site-header .wp-block-my-theme-header-search,
+.editor-styles-wrapper .site-header .header-search-block-editor-preview {
+  box-sizing: border-box;
+  inline-size: auto;
+  margin: 0;
+  max-inline-size: none;
+  min-inline-size: 0;
+  padding: 0;
+}
+
+.editor-styles-wrapper
+  .site-header
+  .header-search-block-editor-preview
+  .site-header__search {
+  display: flex;
+}
+
+.editor-styles-wrapper
+  .site-header
+  .header-search-block-editor-preview
+  form {
+  box-sizing: border-box;
+}

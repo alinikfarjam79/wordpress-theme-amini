@@ -1,0 +1,22 @@
+.editor-styles-wrapper .wp-block-theme-product-information > .block-editor-inner-blocks,
+.editor-styles-wrapper .wp-block-theme-product-information > .block-editor-inner-blocks > .block-editor-block-list__layout {
+  display: contents;
+}
+
+.editor-styles-wrapper .wp-block-theme-product-information > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block {
+  margin: 0;
+  width: 100%;
+}
+
+.editor-styles-wrapper .wp-block-theme-product-overview > .block-editor-inner-blocks,
+.editor-styles-wrapper .wp-block-theme-product-overview > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .wp-block-theme-product-actions > .block-editor-inner-blocks,
+.editor-styles-wrapper .wp-block-theme-product-meta > .block-editor-inner-blocks { display: contents; }
+
+.editor-styles-wrapper .wp-block-theme-product-actions > .block-editor-inner-blocks > .block-editor-block-list__layout {
+  align-items: center; display: flex; justify-content: space-between; width: 100%;
+}
+.editor-styles-wrapper .wp-block-theme-product-meta > .block-editor-inner-blocks > .block-editor-block-list__layout { display: flex; flex-direction: column; width: 100%; }
+.editor-styles-wrapper .wp-block-theme-product-overview .wp-block,
+.editor-styles-wrapper .wp-block-theme-product-actions .wp-block,
+.editor-styles-wrapper .wp-block-theme-product-meta .wp-block { margin: 0; position: relative; }

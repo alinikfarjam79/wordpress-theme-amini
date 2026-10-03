@@ -1,0 +1,25 @@
+.editor-styles-wrapper .wp-block-my-theme-navigation-divider {
+  align-items: center;
+  align-self: center;
+  display: inline-flex;
+  flex: 0 0 12px;
+  height: 34px;
+  justify-content: center;
+  margin: 0;
+  min-width: 12px;
+  width: 12px;
+  background:
+    linear-gradient(
+      to right,
+      transparent calc(50% - 0.5px),
+      #555 calc(50% - 0.5px),
+      #555 calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    );
+}
+
+.editor-styles-wrapper
+  .wp-block-my-theme-navigation-divider.is-selected {
+  outline: 1px dashed #007cba;
+  outline-offset: 3px;
+}

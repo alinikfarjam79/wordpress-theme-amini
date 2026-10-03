@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "theme/product-related-products",
+  "version": "1.0.0",
+  "title": "Related Products",
+  "category": "woocommerce",
+  "icon": "products",
+  "textdomain": "my-theme",
+  "parent": ["theme/single-product-content"],
+  "usesContext": ["postId", "postType", "theme/productId"],
+  "supports": {
+    "align": false,
+    "anchor": false,
+    "customClassName": true,
+    "html": false
+  },
+  "render": "file:./render.php"
+}

@@ -1,0 +1,15 @@
+{
+  "$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"my-theme/bulk-order","version":"1.2.0","title":"خرید عمده رنگ و ابزارآلات","category":"theme","icon":"cart","description":"بنر قابل ویرایش خرید عمده","textdomain":"my-theme",
+  "attributes":{
+    "title":{"type":"string","default":"خرید عمده رنگ و ابزارآلات"},
+    "description":{"type":"string","default":"با بهترین قیمت، مستقیم از نمایندگی برندهای معروف"},
+    "buttonText":{"type":"string","default":"مشاهده پیش فاکتور"},
+    "buttonUrl":{"type":"string","default":"#"},
+    "buttonHeight":{"type":"number","default":44},
+    "imageId":{"type":"number","default":0},
+    "imageUrl":{"type":"string","default":"https://aminirang.ir/wp-content/uploads/2026/06/images-1-1.png"},
+    "imageAlt":{"type":"string","default":"خرید عمده رنگ"}
+  },
+  "supports":{"align":["full"],"anchor":true,"className":true,"html":false,"multiple":true},
+  "editorScript":"file:./index.js","editorStyle":"file:./editor.css","style":"file:./style.css","render":"file:./render.php"
+}
