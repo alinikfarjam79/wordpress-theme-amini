@@ -5,12 +5,12 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-function my_theme_brand_slider_registered_items() {
+function my_theme_brand_slider_registered_items($attributes = []) {
     if (! post_type_exists('brands')) {
         return [];
     }
 
-    $query = new WP_Query([
+    $query_args = [
         'post_type'              => 'brands',
         'posts_per_page'         => -1,
         'post_status'            => 'publish',
@@ -19,13 +19,23 @@ function my_theme_brand_slider_registered_items() {
         'no_found_rows'          => true,
         'update_post_meta_cache' => true,
         'update_post_term_cache' => false,
-    ]);
+    ];
+    if (! empty($attributes['manualRegisteredBrands'])) {
+        $ids = isset($attributes['brandIds']) && is_array($attributes['brandIds'])
+            ? array_values(array_unique(array_filter(array_map('absint', $attributes['brandIds']))))
+            : [];
+        if (! $ids) { return []; }
+        $query_args['post__in'] = $ids;
+        $query_args['orderby'] = 'post__in';
+    }
+    $query = new WP_Query($query_args);
     $items = [];
     foreach ($query->posts as $brand) {
         $image_id = get_post_thumbnail_id($brand->ID);
         $url      = $image_id ? wp_get_attachment_image_url($image_id, 'medium') : '';
         $alt      = $image_id ? (string) get_post_meta($image_id, '_wp_attachment_image_alt', true) : '';
         $items[]  = [
+            'id'      => (int) $brand->ID,
             'imageId'  => (int) $image_id,
             'imageUrl' => $url ?: '',
             'alt'      => $alt ?: get_the_title($brand),
@@ -37,10 +47,28 @@ function my_theme_brand_slider_registered_items() {
     return $items;
 }
 
+// The Brands post type is not public in REST; expose only editor choices.
+function my_theme_brand_slider_register_editor_route() {
+    register_rest_route('my-theme/v1', '/brand-choices', [
+        'methods' => 'GET',
+        'permission_callback' => static function () { return current_user_can('edit_theme_options'); },
+        'callback' => static function () {
+            $brands = get_posts([
+                'post_type' => 'brands', 'post_status' => 'publish',
+                'posts_per_page' => -1, 'orderby' => 'menu_order title', 'order' => 'ASC',
+            ]);
+            return array_map(static function ($brand) {
+                return ['id' => (int) $brand->ID, 'name' => get_the_title($brand)];
+            }, $brands);
+        },
+    ]);
+}
+add_action('rest_api_init', 'my_theme_brand_slider_register_editor_route');
+
 function my_theme_render_brand_slider($attributes = []) {
     $title          = isset($attributes['title']) ? sanitize_text_field($attributes['title']) : 'برندهای معتبر موجود';
     $use_registered = ! isset($attributes['useRegisteredBrands']) || (bool) $attributes['useRegisteredBrands'];
-    $items          = $use_registered ? my_theme_brand_slider_registered_items() : (isset($attributes['brands']) && is_array($attributes['brands']) ? $attributes['brands'] : []);
+    $items          = $use_registered ? my_theme_brand_slider_registered_items($attributes) : (isset($attributes['brands']) && is_array($attributes['brands']) ? $attributes['brands'] : []);
     $items          = array_values(array_filter($items, 'is_array'));
     $item_count     = count($items);
     $navigation     = ! isset($attributes['showNavigation']) || (bool) $attributes['showNavigation'];
@@ -79,7 +107,7 @@ function my_theme_render_brand_slider($attributes = []) {
                         <?php if ($link_brands && $url) : ?></a><?php endif; ?>
                     </div>
                 <?php endforeach; else : ?>
-                    <div class="swiper-slide brand-empty-slide"><p class="brand-empty-message">هیچ برندی ثبت نشده است.</p></div>
+                    <div class="swiper-slide brand-empty-slide"><p class="brand-empty-message"><?php echo esc_html($use_registered && ! empty($attributes['manualRegisteredBrands']) ? 'برندی برای نمایش انتخاب نشده است یا برندهای انتخاب‌شده دیگر منتشر نیستند.' : 'هیچ برندی ثبت نشده است.'); ?></p></div>
                 <?php endif; ?>
             </div></div>
             <?php if ($navigation && $item_count > 1) : ?><button type="button" class="swiper-button-next brand-next" aria-label="برندهای قبلی"></button><button type="button" class="swiper-button-prev brand-prev" aria-label="برندهای بعدی"></button><?php endif; ?>

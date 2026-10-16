@@ -24,6 +24,35 @@
     edit: function (props) {
       const attrs = props.attributes;
       const setAttributes = props.setAttributes;
+      const searchState = element.useState("");
+      const search = searchState[0], setSearch = searchState[1];
+      const selectedIds = Array.isArray(attrs.categoryIds) ? attrs.categoryIds : [];
+      const categoryData = data.useSelect(function (select) {
+        if (!attrs.manualCategories) return { terms: [], loading: false, error: false };
+        const store = select("core");
+        const terms = [];
+        // Request every page, including stores with more than 100 categories.
+        for (let page = 1; ; page++) {
+          const query = { per_page: 100, page: page, hide_empty: false, orderby: "name", order: "asc" };
+          const records = store.getEntityRecords("taxonomy", "product_cat", query);
+          if (!records) {
+            const finished = store.hasFinishedResolution("getEntityRecords", ["taxonomy", "product_cat", query]);
+            return { terms: terms, loading: !finished, error: finished };
+          }
+          terms.push.apply(terms, records);
+          const total = store.getEntityRecordsTotalItems("taxonomy", "product_cat", query);
+          if (records.length < 100 || (typeof total === "number" && terms.length >= total)) {
+            return { terms: terms, loading: false, error: false };
+          }
+        }
+      }, [attrs.manualCategories]);
+      function moveCategory(index, direction) {
+        const next = selectedIds.slice();
+        const target = index + direction;
+        if (target < 0 || target >= next.length) return;
+        const id = next[index]; next[index] = next[target]; next[target] = id;
+        setAttributes({ categoryIds: next });
+      }
       function colorControl(label, key) {
         return el(BaseControl, { label: label }, el(ColorPalette, { colors: palette, value: attrs[key], clearable: false, onChange: function (value) { const patch = {}; patch[key] = value; setAttributes(patch); } }));
       }
@@ -39,7 +68,37 @@
             el(TextControl, { label: i18n.__("لینک دکمه", "my-theme"), value: attrs.buttonUrl || "", onChange: function (value) { setAttributes({ buttonUrl: value }); } })
           ),
           el(PanelBody, { title: i18n.__("دسته‌بندی‌ها", "my-theme"), initialOpen: true },
-            el("p", { className: "category-products-editor__hint" }, i18n.__("این بخش به‌صورت خودکار ۷ دسته‌بندی دارای بیشترین تعداد محصول را نمایش می‌دهد.", "my-theme"))
+            el(ToggleControl, { label: i18n.__("انتخاب دستی دسته‌بندی‌ها", "my-theme"), checked: !!attrs.manualCategories, onChange: function (value) { setAttributes({ manualCategories: value }); } }),
+            !attrs.manualCategories
+              ? el("p", { className: "category-products-editor__hint" }, i18n.__("این بخش به‌صورت خودکار ۷ دسته‌بندی دارای بیشترین تعداد محصول را نمایش می‌دهد.", "my-theme"))
+              : el(Fragment, {},
+                el(TextControl, { label: i18n.__("جستجوی دسته‌بندی", "my-theme"), value: search, onChange: setSearch }),
+                categoryData.loading ? el(Spinner) : null,
+                categoryData.error ? el("p", { role: "alert" }, i18n.__("دریافت دسته‌بندی‌ها انجام نشد. فعال بودن ووکامرس و دسترسی به دسته‌بندی محصولات را بررسی کنید.", "my-theme")) : null,
+                el("div", { className: "category-products-editor__categories" },
+                  categoryData.terms.filter(function (term) { return term.name.toLocaleLowerCase().includes(search.trim().toLocaleLowerCase()); }).map(function (term) {
+                    return el(CheckboxControl, { key: term.id, label: term.name, checked: selectedIds.includes(term.id), onChange: function (checked) {
+                      setAttributes({ categoryIds: checked ? selectedIds.concat(term.id) : selectedIds.filter(function (id) { return id !== term.id; }) });
+                    } });
+                  })
+                ),
+                !categoryData.loading && !categoryData.error && !categoryData.terms.length ? el("p", {}, i18n.__("هنوز دسته‌بندی محصولی وجود ندارد.", "my-theme")) : null,
+                el("p", { className: "category-products-editor__hint" }, i18n.__("فقط دسته‌های تیک‌خورده نمایش داده می‌شوند؛ دسته‌های بدون محصول نیز قابل انتخاب‌اند.", "my-theme")),
+                selectedIds.length ? el("div", { className: "category-products-editor__order" },
+                  el("strong", {}, i18n.__("ترتیب نمایش", "my-theme")),
+                  selectedIds.map(function (id, index) {
+                    const term = categoryData.terms.find(function (item) { return item.id === id; });
+                    return el("div", { key: id, className: "category-products-editor__order-item" },
+                      el("span", {}, term ? term.name : ("#" + id)),
+                      el("div", {},
+                        el(Button, { variant: "tertiary", disabled: index === 0, onClick: function () { moveCategory(index, -1); } }, i18n.__("قبل", "my-theme")),
+                        el(Button, { variant: "tertiary", disabled: index === selectedIds.length - 1, onClick: function () { moveCategory(index, 1); } }, i18n.__("بعد", "my-theme")),
+                        el(Button, { variant: "tertiary", isDestructive: true, onClick: function () { setAttributes({ categoryIds: selectedIds.filter(function (item) { return item !== id; }) }); } }, i18n.__("حذف", "my-theme"))
+                      )
+                    );
+                  })
+                ) : el("p", {}, i18n.__("برای نمایش تب‌ها، حداقل یک دسته‌بندی انتخاب کنید.", "my-theme"))
+              )
           ),
           el(PanelBody, { title: i18n.__("اسلایدر", "my-theme"), initialOpen: false },
             el(ToggleControl, { label: i18n.__("نمایش فلش‌ها", "my-theme"), checked: attrs.showNavigation, onChange: function (value) { setAttributes({ showNavigation: value }); } }),

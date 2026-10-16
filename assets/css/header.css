@@ -455,6 +455,10 @@ body .wp-site-blocks > .wp-block-template-part > .site-header {
     --site-bottom-bar-offset: 0px;
   }
 
+  :root:has(.site-header):not(:has(.site-header .site-header__promo)) {
+    --site-header-offset: 56px;
+  }
+
   body.mobile-menu-is-open {
     overflow: hidden;
   }
@@ -608,6 +612,22 @@ body .wp-site-blocks > .wp-block-template-part > .site-header {
     right: 18px;
     top: calc(50px + 28px - 21px);
     z-index: 10003;
+  }
+
+  /* Keep the mobile controls centred when the optional promo block is removed.
+   * :has also matches the Group wrappers used by the Site Editor. */
+  .site-header:not(:has(.site-header__promo)) {
+    height: 56px !important;
+  }
+
+  .site-header:not(:has(.site-header__promo)) .site-header__main {
+    min-height: 56px;
+    padding-block: 0 !important;
+  }
+
+  .site-header:not(:has(.site-header__promo))
+    .site-header__nav .wp-block-navigation__responsive-container-open {
+    top: calc(50% - 21px);
   }
 
   body.has-modal-open

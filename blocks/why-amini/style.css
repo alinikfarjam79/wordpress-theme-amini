@@ -1,4 +1,5 @@
 .wp-block-my-theme-why-amini.why-box {
+  --why-item-icon-size: 32px;
   border: 0;
   box-shadow: none;
   flex-direction: row !important;
@@ -7,7 +8,30 @@
   margin-inline: auto;
   outline: 0;
 }
+.wp-block-my-theme-why-amini .why-list .why-item-icon {
+  box-sizing: border-box;
+  display: block;
+  flex: 0 0 32px;
+  height: 32px;
+  width: 32px;
+  max-width: none;
+  object-fit: contain;
+}
+@media (min-width: 861px) and (max-width: 1100px) {
+  .wp-block-my-theme-why-amini.why-box { --why-item-icon-size: 34px; }
+  .wp-block-my-theme-why-amini .why-list .why-item-icon {
+    flex-basis: 34px;
+    height: 34px;
+    width: 34px;
+  }
+}
 @media (max-width: 860px) {
+  .wp-block-my-theme-why-amini.why-box { --why-item-icon-size: 38px; }
+  .wp-block-my-theme-why-amini .why-list .why-item-icon {
+    flex: 0 0 auto;
+    height: 38px;
+    width: 38px;
+  }
   .wp-block-my-theme-why-amini.why-box {
     flex-direction: column !important;
     flex-wrap: nowrap !important;

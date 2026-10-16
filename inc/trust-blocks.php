@@ -11,6 +11,18 @@ function my_theme_default_why_items() {
     return ['۴۷ سال تجربه فروش', 'مشاوره تخصصی', 'تنوع محصولات', 'قیمت مناسب'];
 }
 
+function my_theme_why_item_icon($item) {
+    if (! is_array($item)) { return my_theme_why_icon_svg(); }
+    $image_id = isset($item['iconId']) ? absint($item['iconId']) : 0;
+    $url = isset($item['iconUrl']) ? esc_url_raw($item['iconUrl']) : '';
+    if ($image_id) {
+        $attachment = wp_get_attachment_image_url($image_id, 'thumbnail');
+        if ($attachment) { $url = $attachment; }
+    }
+    // Keep the original white circle independently of the selected image.
+    return $url ? '<span class="why-item-icon-frame" aria-hidden="true" style="background-color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:var(--why-item-icon-size,32px);height:var(--why-item-icon-size,32px);flex-shrink:0"><img class="why-item-icon-image" src="' . esc_url($url) . '" alt="" style="display:block;width:56.25%;height:56.25%;object-fit:contain;margin:0"></span>' : my_theme_why_icon_svg();
+}
+
 function my_theme_render_why_amini($attributes = []) {
     $title    = isset($attributes['title']) ? sanitize_text_field($attributes['title']) : 'چرا رنگ امینی؟';
     $items    = isset($attributes['items']) && is_array($attributes['items']) ? $attributes['items'] : my_theme_default_why_items();
@@ -27,8 +39,8 @@ function my_theme_render_why_amini($attributes = []) {
         <div class="wp-block-group why-text is-layout-constrained wp-block-group-is-layout-constrained">
             <?php if ('' !== $title) : ?><h2 class="wp-block-heading"><?php echo esc_html($title); ?></h2><?php endif; ?>
             <?php if ($items) : ?><ul class="why-list-items wp-block-list">
-                <?php foreach ($items as $item) : $text = is_array($item) && isset($item['text']) ? $item['text'] : $item; if ('' === trim((string) $text)) { continue; } ?>
-                    <li class="why-list"><?php echo my_theme_why_icon_svg(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><?php echo esc_html(sanitize_text_field((string) $text)); ?></li>
+                <?php foreach ($items as $item) : $text = is_array($item) ? ($item['text'] ?? '') : $item; if ('' === trim((string) $text)) { continue; } ?>
+                    <li class="why-list"><?php echo my_theme_why_item_icon($item); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><?php echo esc_html(sanitize_text_field((string) $text)); ?></li>
                 <?php endforeach; ?>
             </ul><?php endif; ?>
         </div>

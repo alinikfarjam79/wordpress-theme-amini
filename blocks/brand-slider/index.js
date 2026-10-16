@@ -18,6 +18,30 @@
       const attrs = props.attributes;
       const setAttributes = props.setAttributes;
       const brands = Array.isArray(attrs.brands) ? attrs.brands : [];
+      const selectedIds = Array.isArray(attrs.brandIds) ? attrs.brandIds : [];
+      const choicesState = element.useState({ items: [], loading: false, error: false });
+      const choices = choicesState[0], setChoices = choicesState[1];
+      const searchState = element.useState("");
+      const search = searchState[0], setSearch = searchState[1];
+      const retryState = element.useState(0);
+      element.useEffect(function () {
+        if (!attrs.useRegisteredBrands || !attrs.manualRegisteredBrands) return;
+        let cancelled = false;
+        setChoices({ items: [], loading: true, error: false });
+        window.wp.apiFetch({ path: "/my-theme/v1/brand-choices" }).then(function (items) {
+          if (!cancelled) setChoices({ items: items, loading: false, error: false });
+        }).catch(function () {
+          if (!cancelled) setChoices({ items: [], loading: false, error: true });
+        });
+        return function () { cancelled = true; };
+      }, [attrs.useRegisteredBrands, attrs.manualRegisteredBrands, retryState[0]]);
+      function moveRegisteredBrand(index, delta) {
+        const target = index + delta;
+        if (target < 0 || target >= selectedIds.length) return;
+        const next = selectedIds.slice();
+        const id = next[index]; next[index] = next[target]; next[target] = id;
+        setAttributes({ brandIds: next });
+      }
       function patchBrand(index, patch) { setAttributes({ brands: brands.map(function (item, i) { return i === index ? Object.assign({}, item, patch) : item; }) }); }
       function addBrand() {
         setAttributes({ brands: brands.concat([{
@@ -38,6 +62,37 @@
             el(ToggleControl, { label: i18n.__("استفاده از برندهای ثبت‌شده", "my-theme"), help: i18n.__("با خاموش‌کردن این گزینه می‌توانید لوگوها را دستی مدیریت کنید.", "my-theme"), checked: attrs.useRegisteredBrands, onChange: function (value) { setAttributes({ useRegisteredBrands: value }); } }),
             el(ToggleControl, { label: i18n.__("لینک‌دار کردن لوگوها", "my-theme"), checked: attrs.linkBrands, onChange: function (value) { setAttributes({ linkBrands: value }); } })
           ),
+          attrs.useRegisteredBrands ? el(PanelBody, { title: i18n.__("برندهای نمایشی", "my-theme"), initialOpen: true },
+            el(ToggleControl, { label: i18n.__("انتخاب دستی برندهای ثبت‌شده", "my-theme"), checked: !!attrs.manualRegisteredBrands, onChange: function (value) { setAttributes({ manualRegisteredBrands: value }); } }),
+            !attrs.manualRegisteredBrands ? el("p", {}, i18n.__("همه برندهای منتشرشده به‌صورت خودکار نمایش داده می‌شوند.", "my-theme")) : el(Fragment, {},
+              el(TextControl, { label: i18n.__("جستجوی برند", "my-theme"), value: search, onChange: setSearch }),
+              choices.loading ? el(components.Spinner) : null,
+              choices.error ? el(Notice, { status: "error", isDismissible: false },
+                i18n.__("دریافت برندها انجام نشد.", "my-theme"),
+                el(Button, { variant: "secondary", onClick: function () { retryState[1](retryState[0] + 1); } }, i18n.__("تلاش دوباره", "my-theme"))
+              ) : null,
+              el("div", { className: "brand-slider-editor__choices" }, choices.items.filter(function (item) { return item.name.toLocaleLowerCase().includes(search.trim().toLocaleLowerCase()); }).map(function (item) {
+                return el(components.CheckboxControl, { key: item.id, label: item.name, checked: selectedIds.includes(item.id), onChange: function (checked) {
+                  setAttributes({ brandIds: checked ? selectedIds.concat(item.id) : selectedIds.filter(function (id) { return id !== item.id; }) });
+                } });
+              })),
+              !choices.loading && !choices.error && !choices.items.length ? el("p", {}, i18n.__("هنوز برندی منتشر نشده است.", "my-theme")) : null,
+              selectedIds.length ? el("div", {},
+                el("strong", {}, i18n.__("ترتیب نمایش", "my-theme")),
+                selectedIds.map(function (id, index) {
+                  const item = choices.items.find(function (brand) { return brand.id === id; });
+                  return el("div", { key: id, className: "brand-slider-editor__choice-order" },
+                    el("span", {}, item ? item.name : ("#" + id)),
+                    el("div", { className: "brand-slider-editor__actions" },
+                      el(Button, { variant: "tertiary", disabled: index === 0, onClick: function () { moveRegisteredBrand(index, -1); } }, i18n.__("قبل", "my-theme")),
+                      el(Button, { variant: "tertiary", disabled: index === selectedIds.length - 1, onClick: function () { moveRegisteredBrand(index, 1); } }, i18n.__("بعد", "my-theme")),
+                      el(Button, { variant: "tertiary", isDestructive: true, onClick: function () { setAttributes({ brandIds: selectedIds.filter(function (itemId) { return itemId !== id; }) }); } }, i18n.__("حذف", "my-theme"))
+                    )
+                  );
+                })
+              ) : el("p", {}, i18n.__("برای نمایش لوگوها، حداقل یک برند انتخاب کنید.", "my-theme"))
+            )
+          ) : null,
           el(PanelBody, { title: i18n.__("تنظیمات اسلایدر", "my-theme"), initialOpen: false },
             el(ToggleControl, { label: i18n.__("نمایش فلش‌ها", "my-theme"), checked: attrs.showNavigation, onChange: function (value) { setAttributes({ showNavigation: value }); } }),
             el(ToggleControl, { label: i18n.__("تکرار اسلایدر", "my-theme"), checked: attrs.loop, onChange: function (value) { setAttributes({ loop: value }); } }),

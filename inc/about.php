@@ -295,6 +295,67 @@ function my_theme_migrate_about_brands_group_markup() {
 }
 add_action('admin_init', 'my_theme_migrate_about_brands_group_markup');
 
+/** Replace the legacy static About logos with the shared registered-brands block. */
+function my_theme_about_shared_brands_block($parsed_block) {
+    $classes = preg_split('/\s+/', trim((string) ($parsed_block['attrs']['className'] ?? '')));
+    if ('core/group' !== ($parsed_block['blockName'] ?? '') || ! in_array('about-brands-section', $classes, true)) {
+        return $parsed_block;
+    }
+    $markup = (string) ($parsed_block['innerHTML'] ?? '');
+    // Preserve an edited heading from nested Group blocks.
+    $find_heading = static function ($blocks) use (&$find_heading) {
+        foreach ($blocks as $block) {
+            if ('core/heading' === ($block['blockName'] ?? '')) {
+                return wp_strip_all_tags((string) ($block['innerHTML'] ?? ''));
+            }
+            $heading = $find_heading($block['innerBlocks'] ?? []);
+            if (null !== $heading) { return $heading; }
+        }
+        return null;
+    };
+    $title = $find_heading($parsed_block['innerBlocks'] ?? []);
+    if (null === $title && preg_match('/<h[1-6]\b[^>]*>(.*?)<\/h[1-6]>/s', $markup, $matches)) {
+        $title = wp_strip_all_tags($matches[1]);
+    }
+    $attributes = ['useRegisteredBrands' => true, 'className' => 'about-brands-section'];
+    if (null !== $title) { $attributes['title'] = trim($title); }
+    if (! empty($parsed_block['attrs']['anchor'])) { $attributes['anchor'] = $parsed_block['attrs']['anchor']; }
+    return ['blockName' => 'my-theme/brand-slider', 'attrs' => $attributes, 'innerBlocks' => [], 'innerHTML' => '', 'innerContent' => []];
+}
+add_filter('render_block_data', 'my_theme_about_shared_brands_block');
+
+function my_theme_about_replace_legacy_brands($blocks, &$changed) {
+    foreach ($blocks as &$block) {
+        $replacement = my_theme_about_shared_brands_block($block);
+        if ($replacement !== $block) {
+            $block = $replacement;
+            $changed = true;
+        } elseif (! empty($block['innerBlocks'])) {
+            $block['innerBlocks'] = my_theme_about_replace_legacy_brands($block['innerBlocks'], $changed);
+        }
+    }
+    unset($block);
+    return $blocks;
+}
+
+function my_theme_migrate_about_shared_brands() {
+    if (wp_doing_ajax() || ! current_user_can('edit_theme_options') || get_option('my_theme_about_shared_brands_migrated')) { return; }
+    $templates = get_posts(['post_type' => ['wp_template', 'wp_template_part'], 'post_status' => ['publish', 'draft', 'private'], 'posts_per_page' => -1]);
+    foreach ($templates as $template) {
+        if (false === strpos($template->post_content, 'about-brands-section')) { continue; }
+        $changed = false;
+        $blocks = my_theme_about_replace_legacy_brands(parse_blocks($template->post_content), $changed);
+        if (! $changed) { continue; }
+        if (! metadata_exists('post', $template->ID, '_my_theme_about_static_brands_backup')) {
+            add_post_meta($template->ID, '_my_theme_about_static_brands_backup', $template->post_content, true);
+        }
+        $result = wp_update_post(['ID' => $template->ID, 'post_content' => serialize_blocks($blocks)], true);
+        if (is_wp_error($result)) { return; }
+    }
+    update_option('my_theme_about_shared_brands_migrated', '1', false);
+}
+add_action('admin_init', 'my_theme_migrate_about_shared_brands', 20);
+
 /**
  * Register the dynamic block used by About page templates.
  *

@@ -115,9 +115,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
                 const options = {
                     initialSlide: 0,
-                    slidesPerView: 1,
-                    centeredSlides: false,
-                    spaceBetween: 0,
+                    slidesPerView: "auto",
+                    centeredSlides: true,
+                    spaceBetween: 14,
+                    loop: slider.querySelectorAll(".article-card").length >= 3,
                     slidesOffsetBefore: 0,
                     slidesOffsetAfter: 0,
                     observer: true,

@@ -5,9 +5,25 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-function my_theme_category_products_terms() {
+function my_theme_category_products_terms($attributes = []) {
     if (! taxonomy_exists('product_cat')) {
         return [];
+    }
+
+    if (! empty($attributes['manualCategories'])) {
+        $ids = isset($attributes['categoryIds']) && is_array($attributes['categoryIds'])
+            ? array_values(array_unique(array_filter(array_map('absint', $attributes['categoryIds']))))
+            : [];
+        if (! $ids) {
+            return [];
+        }
+        $terms = get_terms([
+            'taxonomy' => 'product_cat',
+            'hide_empty' => false,
+            'include' => $ids,
+            'orderby' => 'include',
+        ]);
+        return is_wp_error($terms) ? [] : $terms;
     }
 
     $args = [
@@ -75,7 +91,7 @@ function my_theme_render_category_products($attributes = []) {
     $button_url      = isset($attributes['buttonUrl']) ? esc_url($attributes['buttonUrl']) : '';
     $show_navigation = ! isset($attributes['showNavigation']) || (bool) $attributes['showNavigation'];
     $show_pagination = ! isset($attributes['showPagination']) || (bool) $attributes['showPagination'];
-    $terms           = my_theme_category_products_terms();
+    $terms           = my_theme_category_products_terms($attributes);
     $active_term     = $terms ? $terms[0] : null;
     $instance_id     = wp_unique_id('category-products-');
 
@@ -156,7 +172,7 @@ function my_theme_render_category_products($attributes = []) {
                 <?php if ($show_navigation) : ?><button type="button" class="swiper-button-next product-next" aria-label="محصولات قبلی"></button><button type="button" class="swiper-button-prev product-prev" aria-label="محصولات بعدی"></button><?php endif; ?>
             </div>
         <?php else : ?>
-            <p class="no-product">هنوز دسته‌بندی محصول قابل نمایشی وجود ندارد.</p>
+            <p class="no-product"><?php echo esc_html(! empty($attributes['manualCategories']) ? 'دسته‌بندی‌ای برای نمایش انتخاب نشده است یا دسته‌های انتخاب‌شده دیگر وجود ندارند.' : 'هنوز دسته‌بندی محصول قابل نمایشی وجود ندارد.'); ?></p>
         <?php endif; ?>
         <?php if ('' !== $button_text) : ?>
             <div class="wp-block-buttons category-products-section__actions"><div class="wp-block-button"><a class="wp-block-button__link has-background-color has-primary-background-color has-background wp-element-button" href="<?php echo esc_url($button_url); ?>"><?php echo esc_html($button_text); ?></a></div></div>
